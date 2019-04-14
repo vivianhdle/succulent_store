@@ -1,5 +1,5 @@
 {
-  "name": "react_starter",
+  "name": "cactusstore",
   "version": "1.0.0",
   "description": "Starting setup for react redux project",
   "main": "index.js",
@@ -13,6 +13,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Learning-Fuze/react_starter.git"
+  },
+  "proxy":{
+    "/api/*": {
+      "target":"http://localhost"
+    }
   },
   "dependencies": {
     "materialize-css": "^1.0.0",

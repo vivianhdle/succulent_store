@@ -1,17 +1,44 @@
-import React from 'react';
+import React, {Component,Fragment} from 'react';
 import './nav.scss';
+import {Link} from 'react-router-dom';
+import SideNav from './side_nav';
 
-export default props => {
-    return (
-        <nav>
-            <div className="nav-wrapper">
-            <a href="#" className="brand-logo">Succulents</a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="sass.html">Home</a></li>
-                <li><a href="badges.html">Products</a></li>
-                <li><i className="material-icons">shopping_cart</i></li>
-            </ul>
-            </div>
-        </nav>
-    )
+class Nav extends Component{
+    renderLinks(){
+        return(
+            <Fragment>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/products">Products</Link>
+                </li>
+                {/* <li>
+                    <Link></Link>
+                </li> */}
+            </Fragment>
+        )
+    }
+    render(){
+        const links = this.renderLinks();
+        return (
+            <Fragment>
+                <nav>
+                    <div className="nav-wrapper">
+                    <Link to="/" className="brand-logo center">Succulents</Link>
+                    <a href="#" data-target="sidenav" className="sidenav-trigger">
+                        <i className="material-icons">menu</i>
+                    </a>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        {links}
+                    </ul>
+                    </div>
+                </nav>
+                <SideNav links={links}/>
+            </Fragment>
+        )
+    }
+    
 }
+
+export default Nav;

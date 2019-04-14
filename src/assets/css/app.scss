@@ -30,6 +30,25 @@ body {
             margin: 0.16em;
         }
     }
+    .landing-page{
+        height:100vh;
+        width:100vw;
+        background-color:white;
+        position:fixed;
+
+        .logo{
+            background-image:url(../images/logo.png);
+            background-repeat: no-repeat;
+            background-size:contain;
+            height:35%;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            position:relative;
+            width:50%;
+        }
+    }
+    
 }
 
 @keyframes spin {

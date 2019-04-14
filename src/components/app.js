@@ -9,6 +9,7 @@ import Products from './products';
 
 const App = () => (
     <div>
+        <Nav/>
         <Route exact path="/" component={Home}/>
         <Route path="/products" component={Products}/>
     </div>

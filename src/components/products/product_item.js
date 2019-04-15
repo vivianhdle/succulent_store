@@ -8,7 +8,8 @@ class ProductItem extends Component{
     render(){
         console.log(this.props);
         const {id,images,name,price}=this.props.info
-        const url = `/dist/${images}`
+        const url = `/dist/${images}`;
+        const {goToDetails}=this.props
         return(        
             <div className="col s12 m4 card-item">
                 <div className="card col s12 m10 offset-m1">
@@ -20,7 +21,7 @@ class ProductItem extends Component{
                         <p>{formatMoney(price)}</p>
                     </div>
                     <div className="card-action">
-                        <a href="#">More Info</a>
+                        <div className="product-item" onClick={()=>{goToDetails(id)}}>MORE INFO</div>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,8 @@
             "maintenance": "Low-maintenance",
             "flowerType": "Aloe vera produces tall spikes of yellow flowers",
             "fragrance": "None",
-            "growthHabbit":"Upright"
+            "growthHabbit":"Upright",
+            "bestTimeToPlant":"Year round"
         }
     }
 }

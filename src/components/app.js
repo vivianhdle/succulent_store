@@ -11,7 +11,9 @@ const App = () => (
     <div>
         <Nav/>
         <Route exact path="/" component={Home}/>
-        <Route path="/products" component={Products}/>
+        <Route path="/products" render={(routingProps)=>{
+            return <Products/>
+        }}/>
     </div>
 );
 

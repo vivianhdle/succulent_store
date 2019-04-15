@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "productInfo": {
+        "name": "Aloe Vera",
+        "price": 2000,
+        "images": ["images/aloevera.png"],
+        "id": 1,
+        "description": "Aloe vera promotes the healing of minor cuts, scrapes and sunburns. To use, cut outer skin away from a leaf, rub sap onto affected areas.Succulents are fascinating, low-maintenance, drought-tolerant plants that come in a range of stunning colors, shapes and textures. Decorating with these living treasures offers a wealth of possibilities for your outdoor and indoor spaces. Each shipment arrives with care instructions. We recommend promptly removing succulents from their packaging and placing them in a well-lit area such as a patio. Altman Plants is the largest grower of succulents and cacti in the world, with renowned breeders on staff. All succulents are grown in California, which has the perfect climate for optimizing the extraordinary color, durability and quality of our plants.",
+        "miscDetails": {
+            "maintenance": "Low-maintenance",
+            "flowerType": "Aloe vera produces tall spikes of yellow flowers",
+            "fragrance": "None",
+            "growthHabbit":"Upright"
+        }
+    }
+}

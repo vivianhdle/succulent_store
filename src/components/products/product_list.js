@@ -24,10 +24,9 @@ class ProductList extends Component {
         })
         console.log(this.state);
         return(
-            <div className="container">
-                <div className="center">This is product list
-                    {productItems}
-                </div>
+            <div className="row">
+                {productItems}
+                {productItems}
             </div>
         )
     }

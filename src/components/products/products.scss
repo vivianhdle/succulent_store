@@ -1,0 +1,11 @@
+.row .col{
+    padding:0;
+}
+.card-item{
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        color:lightcoral;
+    }
+    .card-image .card-title{
+        color:green;
+    }
+}

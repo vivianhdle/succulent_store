@@ -1,19 +1,19 @@
 {
 	"success": true,
 	"products": [{
-		"name": "Succulents",
+		"name": "Aloe Vera",
 		"price": 2000,
-		"images": ["images/wickedpic.jpg"],
+		"images": ["images/aloe.png"],
 		"id": 1
 	}, {
-		"name": "Cactus",
+		"name": "Bonsai",
 		"price": 42150,
-		"images": ["images/wickedshoes.jpg"],
+		"images": ["images/bonsai.png"],
 		"id": 2
 	}, {
-		"name": "Fern",
+		"name": "Cactus",
 		"price": 525,
-		"images": ["images/wickedbrick.jpg"],
+		"images": ["images/cactus.png"],
 		"id": 3
 	}]
 }

@@ -3,17 +3,17 @@
 	"products": [{
 		"name": "Aloe Vera",
 		"price": 2000,
-		"images": ["images/aloe.png"],
+		"image": "images/aloe.png",
 		"id": 1
 	}, {
-		"name": "Bonsai",
+		"name": "Jade",
 		"price": 42150,
-		"images": ["images/bonsai.png"],
+		"image": "images/jade.png",
 		"id": 2
 	}, {
 		"name": "Cactus",
 		"price": 525,
-		"images": ["images/cactus.png"],
+		"image": "images/cactus.png",
 		"id": 3
 	}]
 }

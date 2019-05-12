@@ -6,8 +6,8 @@ class ProductItem extends Component{
         M.Materialbox.init(this.zoom)
     }
     render(){
-        const {id,images,name,price}=this.props.info
-        const url = `/dist/${images}`;
+        const {id,image,name,price}=this.props.info
+        const url = `/dist/${image}`;
         const {goToDetails}=this.props
         return(        
             <div className="col s8 offset-s2 m4 card-item">

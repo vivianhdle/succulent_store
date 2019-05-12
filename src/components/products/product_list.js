@@ -9,9 +9,11 @@ class ProductList extends Component {
     componentDidMount(){
         this.getProducts();
     }
+    goToDetails = id => {
+        this.props.history.push(`/products/${id}`)
+    }
     async getProducts(){
         const resp = await axios.get('/api/data/getproducts.json');
-        console.log(resp);
         const {products}=resp.data;
         this.setState({
             products:products
@@ -19,10 +21,9 @@ class ProductList extends Component {
     }
     render(){
         const {products} = this.state;
-        const productItems = products.map((item,index)=>{
-            return <ProductItem info={item}/>
+        const productItems = products.map((item)=>{
+            return <ProductItem key={item.id} info={item} goToDetails={this.goToDetails}/>
         })
-        console.log(this.state);
         return(
             <div className="row">
                 {productItems}

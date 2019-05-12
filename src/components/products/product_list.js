@@ -20,7 +20,6 @@ class ProductList extends Component {
         })
     }
     render(){
-        console.log('product-list props:',this.props);
         const {products} = this.state;
         const productItems = products.map((item)=>{
             return <ProductItem key={item.id} info={item} goToDetails={this.goToDetails}/>

@@ -9,17 +9,27 @@ class ProductDetails extends Component{
         this.getDetails();
     }
     async getDetails(){
-        const resp = await axios.get('/api/data/getproductdetails.json');
+        const {params} = this.props.match;
+        const resp = await axios.get(`/api/getproductdetails.php?productId=${params.product_id}`);
         console.log(resp);
         this.setState({
             details:resp.data.productInfo
         });
+        if(resp.data.success){
+            this.setState({
+            details:resp.data.productInfo
+            })
+        }else {
+            this.setState({
+                details:false
+            })
+        }
     }
     render(){
         const {description,name,price,miscDetails,id,image}=this.state.details
         return (
             <div>
-                <img src={`../../../public/${image}`}/>
+                <img src={`/dist/${image}`}/>
             </div>
         )
     }

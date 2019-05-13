@@ -1,12 +1,13 @@
 .products{
-    .row .col{
-        padding:0;
-        transition: 1s ease-in all;
+    .product-item{
+        >.col{
+            padding:0;
+            transition: 1s ease-in all;
+        }
     }
     .card-item{
         .card-image .card-title{
             color:green;
         }
     }
-    
 }

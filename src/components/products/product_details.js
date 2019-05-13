@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from 'axios';
 import {formatMoney} from '../../helpers'
 import MiscDetails from './misc_details';
+import './product_details.scss';
 
 class ProductDetails extends Component{
     state = {
@@ -11,6 +12,7 @@ class ProductDetails extends Component{
         this.getDetails();
     }
     async getDetails(){
+        debugger;
         const {params} = this.props.match;
         const resp = await axios.get(`/api/getproductdetails.php?productId=${params.product_id}`);
         console.log(resp);
@@ -37,11 +39,14 @@ class ProductDetails extends Component{
         const {description,name,price,miscDetails,image}=this.state.details
         return (
             <div className="product-details">
-                <h1 className="center">{name}</h1>
-                <div className="row col s12 m8">
-                    <img src={`/dist/${image}`}/>
-                    <div className="col s12 m8">
-                        <div className="right-align product-price">{formatMoney(price)}</div>
+                <div className="row">
+                    <div className="photo-container col s10 offset-s1 m5 offset-m1">
+                        <img src={`/dist/${image}`}/>
+                    </div>
+                    <div className="info col s10 offset-s1 m5">
+                        <h5 className="right-align">{name} 
+                            <span> {formatMoney(price)}</span>
+                        </h5>
                         <p>{description}</p>
                         <MiscDetails details={miscDetails}/>
                     </div>

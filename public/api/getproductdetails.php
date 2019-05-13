@@ -7,7 +7,6 @@ require_once('mysqlconnect.php');
 if (empty($_GET['productId'])){
     throw new Exception ('productId is a required value');
 }
-
 $id=(int)$_GET['productId'];
 
 $output['success'] = false;
@@ -35,5 +34,6 @@ $output=[
 
 $json_output = json_encode($output);
 print($json_output);
+
 
 ?>

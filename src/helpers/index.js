@@ -4,7 +4,7 @@ export function formatMoney(pennies){
     if (isNaN(pennies)){
         return 'TBA';
     }else{
-        return `$ ${(pennies/100).toFixed(2)}`;
+        return `$${(pennies/100).toFixed(2)}`;
     }
 }
 

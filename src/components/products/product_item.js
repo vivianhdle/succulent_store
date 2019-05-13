@@ -10,7 +10,7 @@ class ProductItem extends Component{
         const url = `/dist/${image}`;
         const {goToDetails}=this.props
         return(        
-            <div className="col s8 offset-s2 m4 card-item">
+            <div className="col s10 offset-s1 m6 l4 card-item product-item">
                 <div className="card col s12 m10 offset-m1">
                     <div className="card-image">
                         <img ref={(element)=>this.zoom=element} className="materialboxed" src={url} alt=""/>

@@ -13,7 +13,7 @@ class ProductList extends Component {
         this.props.history.push(`/products/${id}`)
     }
     async getProducts(){
-        const resp = await axios.get('/api/data/getproducts.json');
+        const resp = await axios.get('/api/getproducts.php');
         const {products}=resp.data;
         this.setState({
             products:products
@@ -26,7 +26,6 @@ class ProductList extends Component {
         })
         return(
             <div className="row">
-                {productItems}
                 {productItems}
             </div>
         )

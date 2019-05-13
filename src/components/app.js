@@ -12,7 +12,7 @@ const App = () => (
         <Nav/>
         <Route exact path="/" component={Home}/>
         <Route path="/products" render={(routingProps)=>{
-            return <Products/>
+            return <Products {...routingProps} />
         }}/>
     </div>
 );

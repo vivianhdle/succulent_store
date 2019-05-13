@@ -1,5 +1,6 @@
 import React from 'react';
 import {toWords} from '../../helpers'
+
 export default props => {
     const {details}=props;
     const additionalInfo = Object.keys(details).map((key)=>{

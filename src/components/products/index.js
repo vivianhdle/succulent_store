@@ -10,7 +10,7 @@ export default props => {
         <div className="products">
             <Route exact path="/products" component={ProductList}/>
             <Route path="/products/:product_id" render={routingProps=>{
-                return <ProductDetails/>
+                return <ProductDetails {...routingProps}/>
             }}/>
         </div>
     )

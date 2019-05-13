@@ -1,11 +1,12 @@
-.row .col{
-    padding:0;
-}
-.card-item{
-    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-        color:lightcoral;
+.products{
+    .row .col{
+        padding:0;
+        transition: 1s ease-in all;
     }
-    .card-image .card-title{
-        color:green;
+    .card-item{
+        .card-image .card-title{
+            color:green;
+        }
     }
+    
 }

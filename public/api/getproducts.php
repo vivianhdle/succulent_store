@@ -1,29 +1,29 @@
 <?php
-// require_once('functions.php');
-// require_once('config.php');
+require_once('functions.php');
+require_once('config.php');
 set_exception_handler('handleError');
 require_once('mysqlconnect.php');
 
-
 $output['success'] = false;
 
-$query= 'SELECT name,price,image,id from products';
+$query= 'SELECT `name`,`price`,`image`,`id` FROM `products`';
 
-$results = mysqli_connect($conn,$query);
+$results = mysqli_query($conn,$query);
 
-if ($result){
+if (!$results){
     throw new Exception(mysqli_error($conn));
 }
-$output['data'] = [];
+$output['products'] = [];
 
-while ($row = mysqli_fetch_assoc($result)){
-    $output['data'][]=[
-        'id':$row['id'],
-        'name':$row['name'],
-        'price':$row['price'],
-        'image':$row['image']
+while ($row = mysqli_fetch_assoc($results)){
+    $output['products'][]=[
+        "name"=>$row['name'],
+        "price"=>$row['price'],
+        "image"=>$row['image'],
+        "id"=>$row['id']
     ];
 }
+
 $output['success'] = true;
 
 $json_output = json_encode($output);

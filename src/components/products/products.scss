@@ -4,10 +4,17 @@
             padding:0;
             transition: 1s ease-in all;
         }
+        .card{
+            border-radius: 10px;
+            overflow: hidden;
+        }
     }
     .card-item{
         .card-image .card-title{
             color:green;
         }
+    }
+    .more-info{
+        cursor:pointer;
     }
 }

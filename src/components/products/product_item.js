@@ -20,7 +20,7 @@ class ProductItem extends Component{
                         <p>{formatMoney(price)}</p>
                     </div>
                     <div className="card-action">
-                        <div className="product-item" onClick={()=>{goToDetails(id)}}>MORE INFO</div>
+                        <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
                     </div>
                 </div>
             </div>

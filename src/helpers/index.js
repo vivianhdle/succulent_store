@@ -15,3 +15,4 @@ export function toWords(name){
     result = result[0].toUpperCase()+result.slice(1);
     return result;
 }
+

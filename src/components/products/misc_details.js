@@ -10,7 +10,7 @@ export default props => {
         }
         return (
             <tr key={key}>
-                <td>{toWords(key)}</td>
+                <td><strong>{toWords(key)}</strong></td>
                 <td>{values}</td>
             </tr>
         )

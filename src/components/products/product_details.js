@@ -3,6 +3,7 @@ import axios from 'axios';
 import {formatMoney} from '../../helpers'
 import MiscDetails from './misc_details';
 import './product_details.scss';
+import AddToCart from '../cart/add_to_cart';
 
 class ProductDetails extends Component{
     state = {
@@ -55,6 +56,7 @@ class ProductDetails extends Component{
                         <h5>{name} 
                             <span className="right-align"> {formatMoney(price)}</span>
                         </h5>
+                        <AddToCart/>
                         <ul>
                             {sentences}
                         </ul>

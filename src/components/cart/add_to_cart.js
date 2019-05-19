@@ -36,7 +36,6 @@ class addToCart extends Component{
                 'cartQty':cartCount,
                 'totalPrice':cartTotal
             })
-            console.log(resp);
         })
     }
     render(){

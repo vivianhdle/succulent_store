@@ -1,4 +1,7 @@
 .products{
+    width:100%;
+    height:calc(100% - 64px);
+
     .product-item{
         >.col{
             padding:0;

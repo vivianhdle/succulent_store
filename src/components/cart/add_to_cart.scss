@@ -35,6 +35,7 @@
                 display:inline-block;
                 border:1px solid black;
                 cursor:pointer;
+                user-select: none;
             }
             .quantity-dec{
                 border-bottom-left-radius: 2px;

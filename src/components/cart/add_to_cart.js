@@ -13,6 +13,18 @@ class addToCart extends Component{
             cartQty:0
         }
     }
+    incrementQty=()=>{
+        this.setState({
+            qty:this.state.qty+1
+        })
+    }
+    decrementQty=()=>{
+        if (this.state.qty>1){
+            this.setState({
+                qty:this.state.qty-1
+            })
+        }
+    }
     render(){
         const {price} = this.props;
         return(
@@ -24,9 +36,9 @@ class addToCart extends Component{
                 <div className="col s6">
                     <div className="quantity-container">
                         <div className="quantity-content">
-                            <div className="quantity-dec"><i className="material-icons">remove</i></div>
+                            <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div>
                             <div className="quantity green lighten-1">{this.state.qty}</div>
-                            <div className="quantity-inc"><i className="material-icons">add</i></div>
+                            <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
                         </div>
                     </div>
                     <button className="btn green lighten-1">Add to <i className="material-icons">shopping_cart</i></button>

@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import axios from 'axios';
-import {formatMoney} from '../../helpers'
 import MiscDetails from './misc_details';
 import './product_details.scss';
 import AddToCart from '../cart/add_to_cart';
@@ -15,7 +14,6 @@ class ProductDetails extends Component{
     async getDetails(){
         const {params} = this.props.match;
         const resp = await axios.get(`/api/getproductdetails.php?productId=${params.product_id}`);
-        console.log(resp);
         this.setState({
             details:resp.data.productInfo
         });
@@ -32,8 +30,8 @@ class ProductDetails extends Component{
     renderList(){
         const{description}=this.state.details;
         let sentences = description.split('.');
-        sentences = sentences.map((sentence)=>{
-            return <li>{sentence}</li>
+        sentences = sentences.map((sentence,index)=>{
+            return <li key={index}>{sentence}</li>
         })
         return sentences;
     }
@@ -52,20 +50,16 @@ class ProductDetails extends Component{
                     <div className="photo-container col s10 offset-s1 m5 offset-m1 l4 offset-l2">
                         <img src={`/dist/${image}`}/>
                     </div>
-                    <div className="info col s10 offset-s1 m5 l4">
-                        <h5>{name} 
-                            <span className="right-align"> {formatMoney(price)}</span>
-                        </h5>
-                        <AddToCart/>
+                    <div className="info col s10 offset-s1 m4 l4">
+                        <div className="name green-text text-darken-1">{name}</div>
+                        <AddToCart price={price}/>
                         <ul>
                             {sentences}
                         </ul>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s10 offset-s1 l5 offset-l2">
-                        <MiscDetails details={miscDetails}/>
-                    </div>
+                    <MiscDetails details={miscDetails}/>
                 </div>
             </div>
         )

@@ -8,7 +8,7 @@ import Products from './products';
 
 
 const App = () => (
-    <div>
+    <div className="app-container">
         <Nav/>
         <Route exact path="/" component={Home}/>
         <Route path="/products" render={(routingProps)=>{

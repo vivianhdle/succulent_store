@@ -33,7 +33,7 @@ class addToCart extends Component{
         axios.get(`/api/addtocart.php?product_id=${id}&quantity=${qty}`).then((resp)=>{
             const {cartCount,cartTotal}=resp.data;
             this.setState({
-                'modalOpen':true,
+                'modalOpen':false,
                 'cartQty':cartCount,
                 'totalPrice':cartTotal
             })

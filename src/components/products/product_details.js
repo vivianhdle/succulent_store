@@ -42,7 +42,7 @@ class ProductDetails extends Component{
         }else if(!details){
             return <h1 className="center">No product found</h1>
         }
-        const {name,price,miscDetails,image}=this.state.details;
+        const {name,price,miscDetails,image,id}=this.state.details;
         const sentences = this.renderList();
         return (
             <div className="product-details">
@@ -52,7 +52,7 @@ class ProductDetails extends Component{
                     </div>
                     <div className="info col s10 offset-s1 m4 l4">
                         <div className="name green-text text-darken-1">{name}</div>
-                        <AddToCart price={price}/>
+                        <AddToCart price={price} id={id}/>
                         <ul>
                             {sentences}
                         </ul>

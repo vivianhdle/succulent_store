@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {formatMoney} from '../../helpers'
 import './add_to_cart.scss';
+import axios from 'axios';
 
 
 class addToCart extends Component{
@@ -25,6 +26,19 @@ class addToCart extends Component{
             })
         }
     }
+    addToCart=()=>{
+        const {id}=this.props
+        const {qty} = this.state
+        const resp = axios.get(`/api/addtocart.php?product_id=${id}&quantity=${qty}`).then((resp)=>{
+            const {cartCount,cartTotal}=resp.data;
+            this.setState({
+                'modalOpen':true,
+                'cartQty':cartCount,
+                'totalPrice':cartTotal
+            })
+            console.log(resp);
+        })
+    }
     render(){
         const {price} = this.props;
         return(
@@ -41,7 +55,7 @@ class addToCart extends Component{
                             <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
                         </div>
                     </div>
-                    <button className="btn green lighten-1">Add to <i className="material-icons">shopping_cart</i></button>
+                    <button className="btn green lighten-1" onClick={this.addToCart}>Add to <i className="material-icons">shopping_cart</i></button>
                 </div>
                 
             </div>

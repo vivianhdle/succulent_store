@@ -1,10 +1,10 @@
 import React from 'react';
 import '../assets/css/app.scss';
-import logo from '../assets/images/logo.svg';
 import Home from './home';
 import Nav from './nav';
 import {Route} from 'react-router-dom'
 import Products from './products';
+import Cart from './cart/view_cart';
 
 
 const App = () => (
@@ -14,6 +14,7 @@ const App = () => (
         <Route path="/products" render={(routingProps)=>{
             return <Products {...routingProps} />
         }}/>
+        <Route path="/cart" component={Cart}/>
     </div>
 );
 

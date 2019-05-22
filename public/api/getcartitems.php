@@ -56,7 +56,6 @@ $cart_items=[];
 while($row=mysqli_fetch_assoc($cart_items_results)){
     $cart_items['name']=$row['name'];
     $cart_items['price']=(int)$row['price'];
-
     $cart_items['quantity']=(int)$row['quantity'];
     $cart_items['id']=(int)$row['products_id'];
     $cart_items_output[]= $cart_items;

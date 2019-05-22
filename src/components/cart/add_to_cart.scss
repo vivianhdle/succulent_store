@@ -47,4 +47,13 @@
             }
         }
     }
+    .modal-content{
+        border-radius:10px;
+        .items-added{
+            padding:1rem;
+        }
+        .cart-total,.cart-quantity{
+            padding:1rem;
+        }
+    }
 }

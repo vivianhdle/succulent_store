@@ -10,10 +10,10 @@ class Modal extends Component{
                     <div className="modal-content">
                         {children}
                         <div className="modal-actions center">
-                            <button onClick={defaultAction} className="btn btn-large teal darken-2">{defaultActionText}
+                            <button onClick={defaultAction} className="btn green lighten-1">{defaultActionText}
                             </button>
                             {secondaryAction
-                                    ? <button onClick={secondaryAction} className="btn btn-large teal darken-2">{secondaryActionText}</button>
+                                    ? <button onClick={secondaryAction} className="btn orange lighten-1">{secondaryActionText}</button>
                                     :null
                             }
                         </div>

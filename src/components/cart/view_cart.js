@@ -15,7 +15,6 @@ class Cart extends Component{
     }
     async getCartData(){
         const {data} = await axios.get('/api/getcartitems.php');
-        console.log(data);
         if(data.success){
             this.setState({
                 items:data.cartItems,
@@ -29,19 +28,19 @@ class Cart extends Component{
         const {items,meta} = this.state;
         let totalItems=0;
         const cartItems=items.map((item)=>{
-            const {quantity} = item;
+            const {quantity,id} = item;
             totalItems+=quantity
             return(
-                <CartItem {...item}/>
+                <CartItem  key={id} {...item}/>
             )
         });
         return (
             <div className="row">
-                <div className="cart col s10 offset-s1">
+                <div className="cart col s12 m10 offset-m1">
                     {/* <h1 className="center">Shopping Cart</h1> */}
                     <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
                     <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                             <tr>
                                 <th>Image</th>
@@ -49,12 +48,13 @@ class Cart extends Component{
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {cartItems}
                             <tr>
-                                <td colSpan="5" className="total-price">
+                                <td colSpan="6" className="total-price">
                                 Total:{formatMoney(meta.total)}
                                 </td>
                             </tr>

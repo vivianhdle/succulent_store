@@ -1,12 +1,14 @@
 import React, {Component,Fragment} from 'react';
 import {formatMoney} from '../../helpers';
+import DeleteConfirmation from '../general/delete_modal';
 
 
 class CartItem extends Component{
     constructor(props){
         super(props);
         this.state={
-            quantity:this.props.quantity
+            quantity:this.props.quantity,
+            isOpen:false
         }
     }
     incrementQty=()=>{
@@ -24,13 +26,19 @@ class CartItem extends Component{
     deleteItemFromCart=()=>{
 
     }
+    toggleDeleteConfirm=()=>{
+        debugger;
+        this.setState({
+            isOpen:!this.state.isOpen
+        })
+    }
     render(){
         const {image,name,price,id} = this.props;
-        const {quantity}=this.state
+        const {quantity,isOpen}=this.state
         const itemTotalPrice= formatMoney(quantity*price);
         return (
             <Fragment>
-                <tr key={id}>
+                <tr>
                     <td>
                         <img src={`/dist/${image}`} alt={`${name} product image`}/>
                     </td>
@@ -44,7 +52,9 @@ class CartItem extends Component{
                         </div>
                     </td>
                     <td>{itemTotalPrice}</td>
+                    <td><button className="btn red lighten-1" onClick={this.toggleDeleteConfirm}>Delete</button></td>
                 </tr>
+                <DeleteConfirmation isOpen={isOpen} closeModal={this.toggleDeleteConfirm} handleDelete={this.deleteItemFromCart}/>
             </Fragment>
         )
         

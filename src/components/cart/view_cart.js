@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {formatMoney} from '../../helpers';
+import './view_cart.scss';
+import CartItem from './cart_row';
 
 class Cart extends Component{
     state = {
@@ -26,46 +28,41 @@ class Cart extends Component{
     render(){
         const {items,meta} = this.state;
         let totalItems=0;
-        const cartItems=items.map(({name,price,images,quantity,id})=>{
+        const cartItems=items.map((item)=>{
+            const {quantity} = item;
             totalItems+=quantity
-            const itemTotalPrice= formatMoney(quantity*price);
             return(
-                <tr key={id}>
-                    <td>
-                        <img src={`/dist/${images}`} alt={`${name} product image`}/>
-                    </td>
-                    <td>{name}</td>
-                    <td>{formatMoney(price)}</td>
-                    <td>{quantity}</td>
-                    <td>{itemTotalPrice}</td>
-                </tr>
+                <CartItem {...item}/>
             )
         });
         return (
-            <div className="cart">
-                <h1 className="center">Shopping Cart</h1>
-                <Link to="/products">Continue shopping</Link>
-                <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Item Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cartItems}
-                        <tr>
-                            <td colSpan="5" className="total-price">
-                            Total:{formatMoney(meta.total)}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="row">
+                <div className="cart col s10 offset-s1">
+                    {/* <h1 className="center">Shopping Cart</h1> */}
+                    <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
+                    <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cartItems}
+                            <tr>
+                                <td colSpan="5" className="total-price">
+                                Total:{formatMoney(meta.total)}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            
         )
     }
 }

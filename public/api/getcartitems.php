@@ -33,7 +33,7 @@ while($row=mysqli_fetch_assoc($cart_data_results)){
     $cart_data_output['total']=(int)$row['total_price'];
 }
 
-$cart_items_query="SELECT `p`.name,`p`.`price`,`c`.`quantity`,`c`.`products_id`
+$cart_items_query="SELECT `p`.image,`p`.name,`p`.`price`,`c`.`quantity`,`c`.`products_id`
 FROM `cart_items` AS `c`
 JOIN `products` AS `p`
 ON `c`.`products_id`=`p`.`id`
@@ -54,6 +54,7 @@ if(mysqli_num_rows($cart_items_results)===0){
 $cart_items_output=[];
 $cart_items=[];
 while($row=mysqli_fetch_assoc($cart_items_results)){
+    $cart_items['image']=$row['image'];
     $cart_items['name']=$row['name'];
     $cart_items['price']=(int)$row['price'];
     $cart_items['quantity']=(int)$row['quantity'];

@@ -1,0 +1,33 @@
+@import '../../assets/css/variables.scss';
+
+.confirm-icon{
+    .icon-text{
+        padding:1rem;
+        position:relative;
+        width:90%;
+        left:5%;
+        i{
+            font-size:140px;
+            color:$main-text;
+        }
+    }
+}
+.confirm-text{
+    font-size: 1.5rem;
+    color:$main-text;
+}
+.confirm-btns{
+    // padding:1rem;
+    button:active{
+        background-color:rgba(0,0,0,.75);
+    }
+    div>button{
+        color:white;
+        margin-left:1rem;
+        background-color:rgb(101, 218, 101)
+    }
+    button+button{
+        color:white;
+        background-color:rgb(219, 81, 81);
+    }
+}

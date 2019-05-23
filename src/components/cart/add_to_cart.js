@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {formatMoney} from '../../helpers'
 import './add_to_cart.scss';
 import axios from 'axios';
+import Modal from '../general/modal';
+import { withRouter } from 'react-router-dom';
 
 
 class addToCart extends Component{
@@ -11,7 +13,7 @@ class addToCart extends Component{
             qty:1,
             modalOpen:false,
             totalPrice:0,
-            cartQty:0
+            cartQty:0,
         }
     }
     incrementQty=()=>{
@@ -29,7 +31,7 @@ class addToCart extends Component{
     addToCart=()=>{
         const {id}=this.props
         const {qty} = this.state
-        const resp = axios.get(`/api/addtocart.php?product_id=${id}&quantity=${qty}`).then((resp)=>{
+        axios.get(`/api/addtocart.php?product_id=${id}&quantity=${qty}`).then((resp)=>{
             const {cartCount,cartTotal}=resp.data;
             this.setState({
                 'modalOpen':true,
@@ -38,28 +40,48 @@ class addToCart extends Component{
             })
         })
     }
+    closeModal=()=>{
+        this.setState({
+            modalOpen:false,
+            qty:1
+        })
+    }
+    goToCart=()=>{
+        this.props.history.push('/cart');
+    }
     render(){
         const {price} = this.props;
+        const {modalOpen, qty, cartQty, totalPrice} = this.state
         return(
-            <div className="add-cart-container row">
-                <div className="col s6">
-                    <div className="price">{formatMoney(price)}</div>
-                    <div className="green-text stock">In Stock.</div>
-                </div>
-                <div className="col s6">
-                    <div className="quantity-container">
-                        <div className="quantity-content">
-                            <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div>
-                            <div className="quantity green lighten-1">{this.state.qty}</div>
-                            <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
+                <div className="add-cart-container row">
+                    <Modal isOpen={modalOpen} defaultAction={this.closeModal} defaultActionText="Continue Shopping" secondaryAction= {this.goToCart} secondaryActionText="View Cart">
+                        <div className="center items-added">{qty} item{qty>1 && 's'} added to your cart</div>
+                        <div className="row">
+                            <div className="col s5 offset-s1 cart-quantity">Cart Total Items:</div>
+                            <div className="col s5 left-align cart-quantity">{cartQty}</div>
                         </div>
+                        <div className="row">
+                            <div className="col s5 offset-s1 cart-total">Cart Total Price:</div>
+                            <div className="col s5 left-align cart-total">{formatMoney(totalPrice)}</div>
+                        </div>
+                    </Modal>
+                    <div className="col s6">
+                        <div className="price">{formatMoney(price)}</div>
+                        <div className="green-text stock">In Stock.</div>
                     </div>
-                    <button className="btn green lighten-1" onClick={this.addToCart}>Add to <i className="material-icons">shopping_cart</i></button>
+                    <div className="col s6">
+                        <div className="quantity-container">
+                            <div className="quantity-content">
+                                <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div>
+                                <div className="quantity green lighten-1">{this.state.qty}</div>
+                                <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
+                            </div>
+                        </div>
+                        <button className="btn green lighten-1" onClick={this.addToCart}>Add to <i className="material-icons">shopping_cart</i></button>
+                    </div>
                 </div>
-                
-            </div>
         )
     }
 }
 
-export default addToCart
+export default withRouter(addToCart);

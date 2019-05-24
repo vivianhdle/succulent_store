@@ -13,8 +13,9 @@ class Cart extends Component{
     componentDidMount(){
         this.getCartData();
     }
-    async getCartData(){
+    getCartData= async ()=>{
         const {data} = await axios.get('/api/getcartitems.php');
+        console.log(data);
         if(data.success){
             this.setState({
                 items:data.cartItems,
@@ -31,7 +32,7 @@ class Cart extends Component{
             const {quantity,id} = item;
             totalItems+=quantity
             return(
-                <CartItem  key={id} {...item}/>
+                <CartItem  key={id} {...item} deleteItemCallback={this.getCartData}/>
             )
         });
         return (
@@ -40,7 +41,7 @@ class Cart extends Component{
                     {/* <h1 className="center">Shopping Cart</h1> */}
                     <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
                     <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
-                    <table class="responsive-table">
+                    <table className="responsive-table">
                         <thead>
                             <tr>
                                 <th>Image</th>

@@ -24,16 +24,13 @@ $cart_data_results=mysqli_query($conn,$cart_data_query);
 if (!$cart_data_results){
     throw new Exception(mysqli_error($conn));
 }
-if(mysqli_num_rows($cart_data_results)===0){
-    throw new Exception('Unable to retreive cart');
-}
 
 while($row=mysqli_fetch_assoc($cart_data_results)){
     $cart_data_output['created']=$row['created'];
     $cart_data_output['total']=(int)$row['total_price'];
 }
 
-$cart_items_query="SELECT `p`.image,`p`.name,`p`.`price`,`c`.`quantity`,`c`.`products_id`
+$cart_items_query="SELECT `p`.image,`p`.name,`p`.`price`,`c`.`quantity`,`c`.`products_id`,`c`.`id`
 FROM `cart_items` AS `c`
 JOIN `products` AS `p`
 ON `c`.`products_id`=`p`.`id`
@@ -47,9 +44,6 @@ $cart_items_results=mysqli_query($conn,$cart_items_query);
 if (!$cart_items_results){
     throw new Exception(mysqli_error($conn));
 }
-if(mysqli_num_rows($cart_items_results)===0){
-    throw new Exception('Unable to retreive cart items');
-}
 
 $cart_items_output=[];
 $cart_items=[];
@@ -58,7 +52,8 @@ while($row=mysqli_fetch_assoc($cart_items_results)){
     $cart_items['name']=$row['name'];
     $cart_items['price']=(int)$row['price'];
     $cart_items['quantity']=(int)$row['quantity'];
-    $cart_items['id']=(int)$row['products_id'];
+    $cart_items['products_id']=(int)$row['products_id'];
+    $cart_items['id']=(int)$row['id'];
     $cart_items_output[]= $cart_items;
 };
 

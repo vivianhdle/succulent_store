@@ -1,6 +1,7 @@
 import React, {Component,Fragment} from 'react';
 import {formatMoney} from '../../helpers';
 import DeleteConfirmation from '../general/delete_modal';
+import axios from 'axios';
 
 
 class CartItem extends Component{
@@ -10,6 +11,7 @@ class CartItem extends Component{
             quantity:this.props.quantity,
             isOpen:false
         }
+        console.log(this.props.id);
     }
     incrementQty=()=>{
         this.setState({
@@ -23,17 +25,25 @@ class CartItem extends Component{
             })
         }
     }
-    deleteItemFromCart=()=>{
-
+    deleteItemFromCart= async ()=>{
+        const {id,deleteItemCallback,products_id} = this.props
+        console.log(id);
+        const resp = await axios.get(`/api/deletecartitem.php?id=${id}&products_id=${products_id}`);
+        console.log(resp);
+        if (resp.data.success){
+            console.log('deleted');
+            deleteItemCallback();
+        }else {
+            console.log('item did not delete');
+        }
     }
     toggleDeleteConfirm=()=>{
-        debugger;
         this.setState({
             isOpen:!this.state.isOpen
         })
     }
     render(){
-        const {image,name,price,id} = this.props;
+        const {image,name,price} = this.props;
         const {quantity,isOpen}=this.state
         const itemTotalPrice= formatMoney(quantity*price);
         return (

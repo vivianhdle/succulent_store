@@ -17,17 +17,14 @@
     color:$main-text;
 }
 .confirm-btns{
-    // padding:1rem;
     button:active{
         background-color:rgba(0,0,0,.75);
     }
     div>button{
         color:white;
         margin-left:1rem;
-        background-color:rgb(101, 218, 101)
     }
     button+button{
         color:white;
-        background-color:rgb(219, 81, 81);
     }
 }

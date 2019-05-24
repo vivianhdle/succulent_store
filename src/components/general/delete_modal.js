@@ -4,8 +4,6 @@ import './delete_confirmation.scss';
 
 function DeleteConfirmation(props){
     const {handleDelete,isOpen,closeModal}=props;
-    debugger;
-    console.log(props);
     if (isOpen){
         return(
             <Modal isOpen={isOpen}>

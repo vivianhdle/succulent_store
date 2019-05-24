@@ -8,7 +8,8 @@ import CartItem from './cart_row';
 class Cart extends Component{
     state = {
         items:[],
-        meta:{}
+        meta:{},
+        totalItems:0
     }
     componentDidMount(){
         this.getCartData();
@@ -26,22 +27,22 @@ class Cart extends Component{
         }
     }
     render(){
-        const {items,meta} = this.state;
+        const {meta,items} = this.state;
         let totalItems=0;
         const cartItems=items.map((item)=>{
             const {quantity,id} = item;
             totalItems+=quantity
             return(
-                <CartItem  key={id} {...item} deleteItemCallback={this.getCartData}/>
+                <CartItem  key={id} {...item} deleteItemCallback={this.getCartData} updateCart={this.props.updateCart}/>
             )
         });
         return (
             <div className="row">
                 <div className="cart col s12 m10 offset-m1">
-                    {/* <h1 className="center">Shopping Cart</h1> */}
+                    <h5 className="center">Your Cart</h5>
                     <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
                     <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
-                    <table className="responsive-table">
+                    <table className="">
                         <thead>
                             <tr>
                                 <th>Image</th>

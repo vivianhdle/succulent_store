@@ -16,13 +16,14 @@ class App extends Component{
         }
     }
     updateCartItems=(count)=>{
+        debugger;
         if (count>0){
             this.setState({
                 cartItems:count
             })
         } else {
             this.setState({
-                cartItems:this.state.cartItems+count
+                cartItems:parseInt(this.state.cartItems)+count
             })
         }
     }

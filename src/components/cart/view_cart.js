@@ -39,7 +39,6 @@ class Cart extends Component{
         return (
             <div className="row">
                 <div className="cart col s12 m10 offset-m1">
-                    <h5 className="center">Your Cart</h5>
                     <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
                     <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
                     <table className="">
@@ -55,14 +54,10 @@ class Cart extends Component{
                         </thead>
                         <tbody>
                             {cartItems}
-                            <tr>
-                                <td colSpan="6" className="total-price">
-                                Total:{formatMoney(meta.total)}
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div className="col s12 m10 offset-m1 right-align">Total:{formatMoney(meta.total)}</div>
             </div>
             
         )

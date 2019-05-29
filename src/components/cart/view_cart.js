@@ -44,12 +44,11 @@ class Cart extends Component{
                     <table className="">
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Item Name</th>
+                                <th>Item</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
-                                <th>Delete</th>
+                                <th>Remove</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +56,7 @@ class Cart extends Component{
                         </tbody>
                     </table>
                 </div>
-                    <div className="col s12 m10 offset-m1 right-align">Total:{formatMoney(meta.total)}</div>
+                    <div className="col s12 m10 offset-m1 price-total right-align">Total: {formatMoney(meta.total)}</div>
             </div>
             
         )

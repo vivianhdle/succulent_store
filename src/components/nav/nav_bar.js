@@ -2,19 +2,20 @@ import React, {Component,Fragment} from 'react';
 import './nav.scss';
 import {Link} from 'react-router-dom';
 import SideNav from './side_nav';
+import CartLink from './cart_link';
 
 class Nav extends Component{
     renderLinks(){
         return(
             <Fragment>
-                <li>
+                <li className="sidenav-close">
                     <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li className="sidenav-close">
                     <Link to="/products">Products</Link>
                 </li>
-                <li>
-                    <Link to="/cart">Cart</Link>
+                <li className="sidenav-close">
+                    <CartLink items={this.props.cartItems}/>
                 </li>
             </Fragment>
         )

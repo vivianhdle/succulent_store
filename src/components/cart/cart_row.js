@@ -26,16 +26,16 @@ class CartItem extends Component{
         }
     }
     deleteItemFromCart= async ()=>{
-        const {id,deleteItemCallback,products_id} = this.props
+        const {id,deleteItemCallback,products_id,updateCart} = this.props
         console.log(id);
         const resp = await axios.get(`/api/deletecartitem.php?id=${id}&products_id=${products_id}`);
         console.log(resp);
         if (resp.data.success){
-            console.log('deleted');
             deleteItemCallback();
         }else {
             console.log('item did not delete');
         }
+        updateCart(-this.state.quantity);
     }
     toggleDeleteConfirm=()=>{
         this.setState({
@@ -50,19 +50,20 @@ class CartItem extends Component{
             <Fragment>
                 <tr>
                     <td>
+                        <div>{name}</div>
                         <img src={`/dist/${image}`} alt={`${name} product image`}/>
                     </td>
-                    <td>{name}</td>
+                    {/* <td>{name}</td> */}
                     <td>{formatMoney(price)}</td>
                     <td>
                         <div className="quantity-content">
-                            <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div>
+                            {/* <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div> */}
                             <div className="quantity">{quantity}</div>
-                            <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
+                            {/* <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div> */}
                         </div>
                     </td>
                     <td>{itemTotalPrice}</td>
-                    <td><button className="btn red lighten-1" onClick={this.toggleDeleteConfirm}>Delete</button></td>
+                    <td><button className="btn red lighten-1" onClick={this.toggleDeleteConfirm}><i className="material-icons">delete_forever</i></button></td>
                 </tr>
                 <DeleteConfirmation isOpen={isOpen} closeModal={this.toggleDeleteConfirm} handleDelete={this.deleteItemFromCart}/>
             </Fragment>

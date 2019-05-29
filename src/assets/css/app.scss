@@ -27,12 +27,21 @@ body {
             background-image:url(../images/logo.png);
             background-repeat: no-repeat;
             background-size:contain;
-            height:35%;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
+            height: 45%;
+            margin:auto;
             position:relative;
             width:52%;
+            top:25%;
+            max-height: 260px;
+            min-width:320px;
+            max-width: 563px;
+        } 
+        .actions{
+            top:25%;
+            position:relative;
+            button{
+                margin:1rem;
+            }
         }
     }
     

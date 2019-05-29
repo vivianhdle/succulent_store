@@ -52,7 +52,7 @@ class ProductDetails extends Component{
                     </div>
                     <div className="info col s10 offset-s1 m4 l4">
                         <div className="name green-text text-darken-1">{name}</div>
-                        <AddToCart price={price} id={id}/>
+                        <AddToCart price={price} id={id} updateCart={this.props.updateCart}/>
                         <ul>
                             {sentences}
                         </ul>

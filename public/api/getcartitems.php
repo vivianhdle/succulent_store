@@ -8,12 +8,28 @@ $output=[
     'success'=>false
 ];
 
+$users_id = 1;
+
 if(empty($_SESSION['carts_id'])){
-    throw new Exception('Missing cart ID');
+    $cart_create_query="INSERT INTO `carts` SET
+        `item_count` = 0,
+        `total_price`= 0,
+        `created` = NOW(),
+        `users_id`= $users_id,
+        `changed` = NOW()
+    ";
+    $cart_result=mysqli_query($conn,$cart_create_query);
+    if (!$cart_result){
+        throw new Exception(mysqli_error($conn));
+    }
+    if(mysqli_affected_rows($conn)===0){
+        throw new Exception('data was not added to cart table');
+    };
+    $carts_id = mysqli_insert_id($conn);
+    $_SESSION['carts_id']= $carts_id;
 }
 
 $carts_id=$_SESSION['carts_id'];
-$users_id = 1;
 $cart_data_query= "SELECT `c`.`created`,`c`.`total_price`,`c`.`item_count`
 FROM `carts` AS `c`
 WHERE `c`.`id` = $carts_id";

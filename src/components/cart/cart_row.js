@@ -12,23 +12,41 @@ class CartItem extends Component{
             isOpen:false
         }
     }
-    incrementQty=()=>{
+    incrementQty=async()=>{
+        const {products_id,quantity,price,updateItem,updateCart} = this.props
+        const resp = await axios.put('/api/incrementquantity.php',{
+            products_id: products_id,
+            quantity:quantity,
+            price:price
+        })
         this.setState({
             quantity:this.state.quantity+1
         })
+        updateItem();
+        updateCart(1,'inc');
     }
-    decrementQty=()=>{
+    decrementQty=async()=>{
+        const {products_id,quantity,price,updateItem,updateCart} = this.props
         if (this.state.quantity>1){
+            const resp = await axios.put('/api/decrementquantity.php',{
+                products_id: products_id,
+                quantity:quantity,
+                price:price
+            })
+            console.log(resp);
             this.setState({
                 quantity:this.state.quantity-1
             })
+            updateItem();
+            updateCart(-1);
         }
+        
     }
     deleteItemFromCart= async ()=>{
-        const {id,deleteItemCallback,products_id,updateCart} = this.props
+        const {id,updateItem,products_id,updateCart} = this.props
         const resp = await axios.get(`/api/deletecartitem.php?id=${id}&products_id=${products_id}`);
         if (resp.data.success){
-            deleteItemCallback();
+            updateItem();
         }else {
             console.log(resp);
         }
@@ -54,9 +72,9 @@ class CartItem extends Component{
                     <td>{formatMoney(price)}</td>
                     <td>
                         <div className="quantity-content">
-                            {/* <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div> */}
+                            <div className="quantity-dec" onClick={this.decrementQty}><i className="material-icons">remove</i></div>
                             <div className="quantity">{quantity}</div>
-                            {/* <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div> */}
+                            <div className="quantity-inc" onClick={this.incrementQty}><i className="material-icons">add</i></div>
                         </div>
                     </td>
                     <td>{itemTotalPrice}</td>

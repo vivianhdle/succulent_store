@@ -32,7 +32,7 @@ class Cart extends Component{
             const {quantity,id} = item;
             totalItems+=quantity
             return(
-                <CartItem  key={id} {...item} deleteItemCallback={this.getCartData} updateCart={this.props.updateCart}/>
+                <CartItem  key={id} {...item} updateItem={this.getCartData} updateCart={this.props.updateCart}/>
             )
         });
         return (

@@ -23,7 +23,7 @@ class App extends Component{
             })
         } else if(count>0 && direction){
             this.setState({
-                cartItems:this.state.cartItems +1
+                cartItems:parseInt(this.state.cartItems) +1
             })
         }else {
             this.setState({

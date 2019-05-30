@@ -30,7 +30,7 @@ class CartItem extends Component{
         if (resp.data.success){
             deleteItemCallback();
         }else {
-            console.log('item did not delete');
+            console.log(resp);
         }
         updateCart(-this.state.quantity);
     }

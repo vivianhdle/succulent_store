@@ -16,7 +16,6 @@ class Cart extends Component{
     }
     getCartData= async ()=>{
         const {data} = await axios.get('/api/getcartitems.php');
-        console.log(data);
         if(data.success){
             this.setState({
                 items:data.cartItems,

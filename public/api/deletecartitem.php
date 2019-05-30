@@ -38,8 +38,6 @@ if(mysqli_affected_rows($conn) === 0){
 $output['success'] = true;
 
 
-
-
 $products_id=(int)$_GET['products_id'];
 
 $price_query="SELECT price FROM products WHERE id=$products_id";

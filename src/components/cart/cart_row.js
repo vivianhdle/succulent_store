@@ -11,7 +11,6 @@ class CartItem extends Component{
             quantity:this.props.quantity,
             isOpen:false
         }
-        console.log(this.props.id);
     }
     incrementQty=()=>{
         this.setState({
@@ -27,9 +26,7 @@ class CartItem extends Component{
     }
     deleteItemFromCart= async ()=>{
         const {id,deleteItemCallback,products_id,updateCart} = this.props
-        console.log(id);
         const resp = await axios.get(`/api/deletecartitem.php?id=${id}&products_id=${products_id}`);
-        console.log(resp);
         if (resp.data.success){
             deleteItemCallback();
         }else {

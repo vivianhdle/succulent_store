@@ -5,6 +5,7 @@ import {formatMoney} from '../../helpers';
 import './view_cart.scss';
 import CartItem from './cart_row';
 import Loader from '../general/loader';
+import EmptyCart from './empty_cart';
 
 class Cart extends Component{
     state = {
@@ -40,6 +41,9 @@ class Cart extends Component{
         });
         if (!isLoaded){
             return <Loader/>
+        }
+        if (!totalItems){
+            return <EmptyCart/>
         }
         return (
             <div className="row">

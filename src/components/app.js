@@ -15,13 +15,16 @@ class App extends Component{
             cartItems:0
         }
     }
-    updateCartItems=(count)=>{
-        debugger;
-        if (count>0){
+    updateCartItems=(count,direction)=>{
+        if (count>0 && !direction){
             this.setState({
                 cartItems:count
             })
-        } else {
+        } else if(count>0 && direction){
+            this.setState({
+                cartItems:parseInt(this.state.cartItems) +1
+            })
+        }else {
             this.setState({
                 cartItems:parseInt(this.state.cartItems)+count
             })

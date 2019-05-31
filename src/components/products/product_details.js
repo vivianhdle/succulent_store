@@ -3,6 +3,7 @@ import axios from 'axios';
 import MiscDetails from './misc_details';
 import './product_details.scss';
 import AddToCart from '../cart/add_to_cart';
+import Loader from '../general/loader'
 
 class ProductDetails extends Component{
     state = {
@@ -38,7 +39,7 @@ class ProductDetails extends Component{
     render(){
         const {details}=this.state;
         if(details===null){
-            return <h1 className="center">LOADING...</h1>
+            return <Loader/>
         }else if(!details){
             return <h1 className="center">No product found</h1>
         }

@@ -38,8 +38,6 @@ if(mysqli_affected_rows($conn) === 0){
 $output['success'] = true;
 
 
-
-
 $products_id=(int)$_GET['products_id'];
 
 $price_query="SELECT price FROM products WHERE id=$products_id";
@@ -52,7 +50,7 @@ $carts_id = $_SESSION['carts_id'];
 
 
 $update_cart_query="UPDATE `carts` SET 
-`item_count`=(SELECT SUM(quantity) FROM cart_items WHERE carts_id = $carts_id),
+`item_count`=(SELECT COALESCE(SUM(quantity),0) FROM cart_items WHERE carts_id = $carts_id),
 `total_price`= `total_price` - $deleteTotal
 WHERE `id` = $carts_id";
 

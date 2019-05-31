@@ -4,6 +4,7 @@ import './add_to_cart.scss';
 import axios from 'axios';
 import Modal from '../general/modal';
 import { withRouter } from 'react-router-dom';
+import Loader from '../general/loader';
 
 
 class addToCart extends Component{
@@ -14,6 +15,7 @@ class addToCart extends Component{
             modalOpen:false,
             totalPrice:0,
             cartQty:0,
+            adding:false
         }
     }
     incrementQty=()=>{
@@ -29,16 +31,24 @@ class addToCart extends Component{
         }
     }
     addToCart=()=>{
+        this.setState({
+            adding:true
+        })
         const {id,updateCart}=this.props
         const {qty} = this.state
         axios.get(`/api/addtocart.php?product_id=${id}&quantity=${qty}`).then((resp)=>{
-            const {cartCount,cartTotal}=resp.data;
-            updateCart(cartCount);
-            this.setState({
-                'modalOpen':true,
-                'cartQty':cartCount,
-                'totalPrice':cartTotal
-            })
+            if (resp.data.success){
+                const {cartCount,cartTotal}=resp.data;
+                updateCart(cartCount);
+                this.setState({
+                    modalOpen:true,
+                    cartQty:cartCount,
+                    totalPrice:cartTotal,
+                    adding:false
+                })
+            } else {
+                //error handling
+            }
         })
     }
     closeModal=()=>{
@@ -52,7 +62,10 @@ class addToCart extends Component{
     }
     render(){
         const {price} = this.props;
-        const {modalOpen, qty, cartQty, totalPrice} = this.state
+        const {modalOpen, qty, cartQty, totalPrice,adding} = this.state
+        if (adding){
+            return <Loader/>
+        }
         return(
                 <div className="add-cart-container row">
                     <Modal isOpen={modalOpen} defaultAction={this.closeModal} defaultActionText="Continue Shopping" secondaryAction= {this.goToCart} secondaryActionText="View Cart">

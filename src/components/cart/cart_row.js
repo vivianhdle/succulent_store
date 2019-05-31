@@ -65,7 +65,7 @@ class CartItem extends Component{
             updateItem();
             updateCart(-this.state.quantity);
         }else {
-            console.log(resp);
+            //error handling
         }
     }
     toggleDeleteConfirm=()=>{
@@ -77,7 +77,6 @@ class CartItem extends Component{
         const {image,name,price} = this.props;
         const {quantity,isOpen,deleting,updating}=this.state
         const itemTotalPrice= formatMoney(quantity*price);
-        debugger;
         if (deleting||updating){
             return <Loader/>
         }

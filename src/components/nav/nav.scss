@@ -1,0 +1,46 @@
+nav {
+    box-shadow: none;
+    background-color:transparent;
+    .brand-logo{
+        color:rgb(100, 100, 100);
+    }
+    ul a {
+        color:rgb(100, 100, 100);
+    }
+    a{
+        color:rgb(226, 123, 123);
+    }
+}
+
+.cart-link{
+    position:relative;
+    
+    .cart-icon{
+        font-size:1.5em;
+    }
+
+    .cart-items{
+        background-color: rgb(105, 189, 105);
+        position: absolute;
+        border-radius: 50%;
+        top: 12px;
+        right: 10px;
+        color: white;
+        line-height: 14px;
+        width: 14px;
+        display: inline-block;
+        text-align: center;
+        font-size: 10px;
+    }
+}
+.sidenav{
+    .cart-link{
+        .cart-items{
+            border-radius:5px;
+            padding:4px 12px;
+            top:15px;
+            width:auto;
+        }
+    }
+    
+}

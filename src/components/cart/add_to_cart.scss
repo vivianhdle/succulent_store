@@ -1,0 +1,59 @@
+@import '../../assets/css/variables.scss';
+
+.add-cart-container{
+    .price{
+        font-size:1.5rem;
+    }
+    .price,.quantity-container,.stock{
+        margin:1rem 0;
+    }
+    .stock{
+        font-size:1.5rem;
+    }
+    .quantity-container{
+        height:100%;
+
+        .quantity-content{
+            vertical-align: top;
+
+            .quantity{
+                font-size:1.5rem;
+                padding:0 1rem;
+                color:$main-text;
+                border-top:1px solid black;
+                border-bottom:1px solid black;
+                box-sizing: border-box;
+                display:inline-block;
+                height:100%;
+                vertical-align:top;
+                color:white;
+            }
+            .quantity-inc,.quantity-dec{
+                font-size:1.5rem;
+                vertical-align:top;
+                height:100%;
+                display:inline-block;
+                border:1px solid black;
+                cursor:pointer;
+                user-select: none;
+            }
+            .quantity-dec{
+                border-bottom-left-radius: 2px;
+                border-top-left-radius: 2px;
+            }
+            .quantity-inc{
+                border-bottom-right-radius: 2px;
+                border-top-right-radius: 2px;
+            }
+        }
+    }
+    .modal-content{
+        border-radius:10px;
+        .items-added{
+            padding:1rem;
+        }
+        .cart-total,.cart-quantity{
+            padding:1rem;
+        }
+    }
+}

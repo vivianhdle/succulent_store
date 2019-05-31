@@ -1,0 +1,19 @@
+{
+	"success": true,
+	"products": [{
+		"name": "Aloe Vera",
+		"price": 2000,
+		"image": "images/aloe.png",
+		"id": 1
+	}, {
+		"name": "Jade",
+		"price": 42150,
+		"image": "images/jade.png",
+		"id": 2
+	}, {
+		"name": "Cactus",
+		"price": 525,
+		"image": "images/cactus.png",
+		"id": 3
+	}]
+}

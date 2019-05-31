@@ -1,3 +1,4 @@
+@import './variables.scss';
 @font-face {
     font-family: rustic;
     src: url(../fonts/rustic.ttf);
@@ -5,38 +6,43 @@
 
 body {
     margin: 0;
+    color:$main-text;
 
-    .app {
-        background-color: #000;
-        color: #FFF;
-        font-family: rustic;
-        font-size: 30px;
-        padding: 50px;
-        text-align: center;
-
-        .logo {
-            height: 175px;
-        }
-
-        .rotate {
-            animation: spin 10s linear infinite;
-        }
-
-        h1 {
-            color: #61DAFB;
-            font-size: 4em;
-            font-weight: normal;
-            letter-spacing: 2px;
-            margin: 0.16em;
+    #root{
+        height:100%;
+        width:100%;
+        .app-container{
+            height:100%;
+            width:100%;
         }
     }
-}
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
+    .landing-page{
+        height:100vh;
+        width:100vw;
+        background-color:white;
+        position:fixed;
+
+        .logo{
+            background-image:url(../images/logo.png);
+            background-repeat: no-repeat;
+            background-size:contain;
+            height: 45%;
+            margin:auto;
+            position:relative;
+            width:52%;
+            top:25%;
+            max-height: 260px;
+            min-width:320px;
+            max-width: 563px;
+        } 
+        .actions{
+            top:25%;
+            position:relative;
+            button{
+                margin:1rem;
+            }
+        }
     }
-    to {
-        transform: rotate(360deg);
-    }
+    
 }

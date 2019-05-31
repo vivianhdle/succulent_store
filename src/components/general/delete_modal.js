@@ -13,7 +13,7 @@ function DeleteConfirmation(props){
                     </div>
                 </div>
                 <div className="confirm-text center row">
-                    <div className="col s10 offset-s1">Are you sure you want to delete this forever?</div>
+                    <div className="col s10 offset-s1">Are you sure you want to remove this item from your cart?</div>
                 </div>
                 <div className="confirm-btns center row">
                     <div className="col s10 offset-s1">

@@ -4,12 +4,14 @@ import axios from 'axios';
 import {formatMoney} from '../../helpers';
 import './view_cart.scss';
 import CartItem from './cart_row';
+import Loader from '../general/loader';
 
 class Cart extends Component{
     state = {
         items:[],
         meta:{},
-        totalItems:0
+        totalItems:0,
+        isLoaded:false
     }
     componentDidMount(){
         this.getCartData();
@@ -19,14 +21,15 @@ class Cart extends Component{
         if(data.success){
             this.setState({
                 items:data.cartItems,
-                meta:data.cartMetaData
+                meta:data.cartMetaData,
+                isLoaded:true
             })
         }else {
             console.error('Cart data failed to load');
         }
     }
     render(){
-        const {meta,items} = this.state;
+        const {meta,items,isLoaded} = this.state;
         let totalItems=0;
         const cartItems=items.map((item)=>{
             const {quantity,id} = item;
@@ -35,6 +38,9 @@ class Cart extends Component{
                 <CartItem  key={id} {...item} updateItem={this.getCartData} updateCart={this.props.updateCart}/>
             )
         });
+        if (!isLoaded){
+            return <Loader/>
+        }
         return (
             <div className="row">
                 <div className="cart col s12 m10 offset-m1">

@@ -2,6 +2,7 @@ import React, {Component,Fragment} from 'react';
 import {formatMoney} from '../../helpers';
 import DeleteConfirmation from '../general/delete_modal';
 import axios from 'axios';
+import Loader from '../general/loader';
 
 
 class CartItem extends Component{
@@ -9,23 +10,34 @@ class CartItem extends Component{
         super(props);
         this.state={
             quantity:this.props.quantity,
-            isOpen:false
+            isOpen:false,
+            deleting:false,
+            updating:false
         }
     }
     incrementQty=async()=>{
+        this.setState({
+            updating:true
+        })
         const {products_id,quantity,price,updateItem,updateCart} = this.props
         const resp = await axios.put('/api/incrementquantity.php',{
             products_id: products_id,
             quantity:quantity,
             price:price
         })
-        this.setState({
-            quantity:this.state.quantity+1
-        })
-        updateItem();
-        updateCart(1,'inc');
+        if (resp.data.success){
+            this.setState({
+                quantity:this.state.quantity+1,
+                updating:false
+            })
+            updateItem();
+            updateCart(1,'inc');
+        }
     }
     decrementQty=async()=>{
+        this.setState({
+            updating:true
+        })
         const {products_id,quantity,price,updateItem,updateCart} = this.props
         if (this.state.quantity>1){
             const resp = await axios.put('/api/decrementquantity.php',{
@@ -33,24 +45,28 @@ class CartItem extends Component{
                 quantity:quantity,
                 price:price
             })
-            console.log(resp);
-            this.setState({
-                quantity:this.state.quantity-1
-            })
-            updateItem();
-            updateCart(-1);
+            if (resp.data.success){
+                this.setState({
+                    quantity:this.state.quantity-1,
+                    updating:false
+                })
+                updateItem();
+                updateCart(-1);
+            }
         }
-        
     }
     deleteItemFromCart= async ()=>{
+        this.setState({
+            deleting:true
+        })
         const {id,updateItem,products_id,updateCart} = this.props
         const resp = await axios.get(`/api/deletecartitem.php?id=${id}&products_id=${products_id}`);
         if (resp.data.success){
             updateItem();
+            updateCart(-this.state.quantity);
         }else {
             console.log(resp);
         }
-        updateCart(-this.state.quantity);
     }
     toggleDeleteConfirm=()=>{
         this.setState({
@@ -59,8 +75,12 @@ class CartItem extends Component{
     }
     render(){
         const {image,name,price} = this.props;
-        const {quantity,isOpen}=this.state
+        const {quantity,isOpen,deleting,updating}=this.state
         const itemTotalPrice= formatMoney(quantity*price);
+        debugger;
+        if (deleting||updating){
+            return <Loader/>
+        }
         return (
             <Fragment>
                 <tr>
@@ -68,7 +88,6 @@ class CartItem extends Component{
                         <div>{name}</div>
                         <img src={`/dist/${image}`} alt={`${name} product image`}/>
                     </td>
-                    {/* <td>{name}</td> */}
                     <td>{formatMoney(price)}</td>
                     <td>
                         <div className="quantity-content">

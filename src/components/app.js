@@ -16,7 +16,6 @@ class App extends Component{
         }
     }
     updateCartItems=(count,direction)=>{
-        debugger;
         if (count>0 && !direction){
             this.setState({
                 cartItems:count

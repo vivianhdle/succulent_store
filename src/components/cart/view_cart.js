@@ -25,7 +25,7 @@ class Cart extends Component{
                 isLoaded:true
             })
         }else {
-            console.error('Cart data failed to load');
+            //error handling
         }
     }
     render(){

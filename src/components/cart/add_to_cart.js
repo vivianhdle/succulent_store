@@ -57,6 +57,9 @@ class addToCart extends Component{
             qty:1
         })
     }
+    goToProducts=()=>{
+        this.props.history.push('/products');
+    }
     goToCart=()=>{
         this.props.history.push('/cart');
     }
@@ -68,7 +71,7 @@ class addToCart extends Component{
         }
         return(
                 <div className="add-cart-container row">
-                    <Modal isOpen={modalOpen} defaultAction={this.closeModal} defaultActionText="Continue Shopping" secondaryAction= {this.goToCart} secondaryActionText="View Cart">
+                    <Modal isOpen={modalOpen} defaultAction={this.goToProducts} defaultActionText="Continue Shopping" secondaryAction= {this.goToCart} secondaryActionText="View Cart">
                         <div className="center items-added">{qty} item{qty>1 && 's'} added to your cart</div>
                         <div className="row">
                             <div className="col s5 offset-s1 cart-quantity">Cart Total Items:</div>

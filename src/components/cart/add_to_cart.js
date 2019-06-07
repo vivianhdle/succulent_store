@@ -63,6 +63,9 @@ class addToCart extends Component{
     goToCart=()=>{
         this.props.history.push('/cart');
     }
+    goToProducts=()=>{
+        this.props.history.push('/products');
+    }
     render(){
         const {price} = this.props;
         const {modalOpen, qty, cartQty, totalPrice,adding} = this.state

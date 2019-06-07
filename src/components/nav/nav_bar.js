@@ -15,6 +15,9 @@ class Nav extends Component{
                     <Link to="/products">Products</Link>
                 </li>
                 <li className="sidenav-close">
+                    <Link to="/product-care">Care Guide</Link>
+                </li>
+                <li className="sidenav-close">
                     <CartLink items={this.props.cartItems}/>
                 </li>
             </Fragment>

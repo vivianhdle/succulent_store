@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom'
 import Products from './products';
 import Cart from './cart/view_cart';
 import axios from 'axios';
+import ProductCare from './product_care';
 
 
 class App extends Component{
@@ -48,6 +49,7 @@ class App extends Component{
                 <Route path="/cart" render={(routingProps)=>{
                     return <Cart {...routingProps} updateCart={this.updateCartItems}/>
                 }}/>
+                <Route path="/product-care" component={ProductCare}/>
             </div>
         )
     }

@@ -11,7 +11,6 @@ class Home extends Component{
     render(){
         return (
             <div className="landing-page">
-                <div className="logo"></div>
                 <div className="actions center">
                     <button className="btn green lighten-1" onClick={this.goToProducts}>Products</button>
                     <button className="btn orange lighten-1" onClick={this.goToCart}>Cart</button>

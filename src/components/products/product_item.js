@@ -18,10 +18,11 @@ class ProductItem extends Component{
                     </div>
                     <div className="card-content">
                         <p>{formatMoney(price)}</p>
-                    </div>
-                    <div className="card-action">
                         <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
                     </div>
+                    {/* <div className="card-action">
+                        <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
+                    </div> */}
                 </div>
             </div>
         )

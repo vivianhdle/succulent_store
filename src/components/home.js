@@ -5,8 +5,8 @@ class Home extends Component{
     goToProducts=()=>{
         this.props.history.push('/products');
     }
-    goToCart=()=>{
-        this.props.history.push('/cart');
+    goToGuide=()=>{
+        this.props.history.push('/product-care');
     }
     render(){
         return (
@@ -21,7 +21,7 @@ class Home extends Component{
                     <div className="row">
                         <div className="button-container col s12 m5 offset-m1 l4 offset-l2">
                             <button className="btn green lighten-1" onClick={this.goToProducts}>Plants</button>
-                            {/* <button className="btn orange lighten-1" onClick={this.goToCart}>Cart</button> */}
+                            <button className="btn  yellow darken-1" onClick={this.goToCart}>Learn More</button>
                         </div>
                     </div>
                 </div>

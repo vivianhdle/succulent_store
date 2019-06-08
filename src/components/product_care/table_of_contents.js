@@ -11,8 +11,8 @@ function TableOfContents(){
                     <p>While succulents are known for their resilience and low maintenance, there are still a few rules you’ll have to follow if you want them to thrive.</p>
                     <ol>
                         <li>Water Care</li>
+                        <li>Soil and Drainage</li>
                         <li>Sunlight</li>
-                        <li>Soil and Planting</li>
                     </ol>
                 </div>
             </div>

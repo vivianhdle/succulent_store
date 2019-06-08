@@ -36,8 +36,10 @@ class ProductList extends Component {
         })
         
         return(
-            <div className="row">
-                {productItems}
+            <div className="product-container row">
+                <div className="row col l8 offset-l2">
+                    {productItems}
+                </div>
             </div>
         )
     }

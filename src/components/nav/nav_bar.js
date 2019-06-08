@@ -12,7 +12,7 @@ class Nav extends Component{
                     <Link to="/"><i className="fas fa-home"></i></Link>
                 </li>
                 <li className="sidenav-close">
-                    <Link to="/products"><i className="fas fa-seedling"></i></Link>
+                    <Link to="/products"><i className="fas fa-leaf"></i></Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/product-care"><i className="fas fa-book-open"></i></Link>
@@ -28,7 +28,7 @@ class Nav extends Component{
         return (
             <Fragment>
                 <nav className="row">
-                    <div className="nav-wrapper col offset-l2 l8">
+                    <div className="nav-wrapper col s12 offset-l2 l8">
                         <Link to="/" className="brand-logo"><i className="fas fa-seedling"></i></Link>
                         <a href="#" data-target="sidenav" className="sidenav-trigger">
                             <i className="material-icons">menu</i>

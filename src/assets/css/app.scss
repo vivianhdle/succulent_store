@@ -33,8 +33,23 @@ body {
         position:fixed;
         background-repeat:no-repeat;
         @media only screen and (max-width: 601px){
-            background-image:url("../images/landing-phone.jpg")
+            background-image:url("../images/succulents-bottom.jpg")
         }
+
+        @media only screen 
+            and (min-device-width: 1024px) 
+            and (max-device-width: 1366px) 
+            and (-webkit-min-device-pixel-ratio: 2) 
+            and (orientation: portrait){
+                background-position:right;
+            }
+        @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (-webkit-min-device-pixel-ratio: 2) 
+            and (orientation: portrait){
+                background-position:right;
+            }
         .landing-container{
             top:56px;
             position:relative;
@@ -50,6 +65,9 @@ body {
             }
             .button-container{
                 margin-top:1rem;
+                button {
+                    margin-right:1rem;
+                }
             }
         }
     }

@@ -1,9 +1,9 @@
 import React from 'react';
-import './table_of_contents.scss';
+// import './table_of_contents.scss';
 
-function TableOfContents(){
+function SunCare(){
     return(
-        <div className="table-of-contents">
+        <div className="sun-care">
             <div className="contents-container row">
                 <img src="/dist/images/productcare/guide.jpg"className="guide-photo col s12 m5 offset-m1 l4 offset-l2"/>
                 <div className="guide-text col s12 m4 offset-m1 offset-l1 l3">

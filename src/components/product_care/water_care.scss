@@ -1,17 +1,13 @@
-.table-of-contents{
-    height:100%;
-    width:100%;
-    .contents-container{
+.water-care{
+    margin-top:1rem;
+    .water-container{
         display:flex;
         -webkit-box-align: center;
         align-items: center;
         @media only screen and (max-width: 601px){
             display:block;
         }
-
-    }
-    .guide-text{
-        .guide-title{
+        .water-title{
             font-weight:300;
         }
     }

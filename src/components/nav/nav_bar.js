@@ -2,7 +2,7 @@ import React, {Component,Fragment} from 'react';
 import './nav.scss';
 import {Link} from 'react-router-dom';
 import SideNav from './side_nav';
-import CartLink from './cart_link';
+import {CartLink, SideCartLink} from './cart_link';
 
 class Nav extends Component{
     renderLinks(){
@@ -23,8 +23,27 @@ class Nav extends Component{
             </Fragment>
         )
     }
+    renderSideLinks(){
+        return (
+            <Fragment>
+                <li className="sidenav-close">
+                    <Link to="/"><i className="fas fa-home"></i>Home</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/products"><i className="fas fa-leaf"></i>Products</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/product-care"><i className="fas fa-book-open"></i>Care Guide</Link>
+                </li>
+                <li className="sidenav-close">
+                    <SideCartLink items={this.props.cartItems}/>
+                </li>
+            </Fragment>
+        )
+    }
     render(){
         const links = this.renderLinks();
+        const sideLinks = this.renderSideLinks();
         return (
             <Fragment>
                 <nav className="row">
@@ -38,7 +57,7 @@ class Nav extends Component{
                         </ul>
                     </div>
                 </nav>
-                <SideNav links={links}/>
+                <SideNav links={sideLinks}/>
             </Fragment>
         )
     }

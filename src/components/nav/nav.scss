@@ -3,6 +3,11 @@ nav {
     background-color:transparent;
     .brand-logo{
         color:rgb(100, 100, 100);
+        i{
+            @media only screen and (max-width: 601px){
+                line-height:56px;
+            }
+        }
     }
     ul a {
         color:rgb(100, 100, 100);

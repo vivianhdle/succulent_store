@@ -6,7 +6,7 @@ class ProductItem extends Component{
         M.Materialbox.init(this.zoom)
     }
     render(){
-        const {id,image,name,price}=this.props.info
+        const {id,image,name,price,type}=this.props.info
         const url = `/dist/${image}`;
         const {goToDetails}=this.props
         return(        
@@ -14,15 +14,12 @@ class ProductItem extends Component{
                 <div className="card col s12 m10 offset-m1">
                     <div className="card-image">
                         <img ref={(element)=>this.zoom=element} className="materialboxed" src={url} alt=""/>
-                        <span className="card-title">{name}</span>
+                        {type === 'terrarium' ? <span className="card-title orange-text text-lighten-1">{name}</span>:<span className="card-title">{name}</span>}
                     </div>
                     <div className="card-content">
                         <p>{formatMoney(price)}</p>
                         <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
                     </div>
-                    {/* <div className="card-action">
-                        <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
-                    </div> */}
                 </div>
             </div>
         )

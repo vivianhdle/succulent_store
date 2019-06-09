@@ -6,7 +6,7 @@ require_once('mysqlconnect.php');
 
 $output['success'] = false;
 
-$query= 'SELECT `name`,`price`,`image`,`id` FROM `products`';
+$query= 'SELECT `name`,`price`,`image`,`id`, `type` FROM `products`';
 
 $results = mysqli_query($conn,$query);
 
@@ -20,7 +20,8 @@ while ($row = mysqli_fetch_assoc($results)){
         "name"=>$row['name'],
         "price"=>$row['price'],
         "image"=>$row['image'],
-        "id"=>$row['id']
+        "id"=>$row['id'],
+        "type"=>$row['type']
     ];
 }
 

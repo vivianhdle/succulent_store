@@ -1,0 +1,9 @@
+.tabs{
+    .tab a:focus, .tab a:focus.active {
+        background-color: transparent;
+        outline: none;
+    }
+    .indicator{
+        background-color: peachpuff;
+    }
+}

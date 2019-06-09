@@ -21,7 +21,7 @@ class Home extends Component{
                     <div className="row">
                         <div className="button-container col s12 m5 offset-m1 l4 offset-l2">
                             <button className="btn green lighten-1" onClick={this.goToProducts}>Plants</button>
-                            <button className="btn guide-button" onClick={this.goToCart}>Learn More</button>
+                            <button className="btn guide-button" onClick={this.goToGuide}>Learn More</button>
                         </div>
                     </div>
                 </div>

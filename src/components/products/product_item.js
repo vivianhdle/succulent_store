@@ -14,11 +14,11 @@ class ProductItem extends Component{
                 <div className="card col s12 m10 offset-m1">
                     <div className="card-image">
                         <img ref={(element)=>this.zoom=element} className="materialboxed" src={url} alt=""/>
-                        {type === 'terrarium' ? <span className="card-title orange-text text-lighten-1">{name}</span>:<span className="card-title">{name}</span>}
                     </div>
                     <div className="card-content">
+                        {type === 'terrarium' ? <span className="card-title orange-text text-lighten-1">{name}</span>:<span className="card-title green-text text-lighten-1">{name}</span>}
                         <p>{formatMoney(price)}</p>
-                        <div><span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span></div>
+                        <div>{type === 'terrarium' ? <span className="more-info green-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span>:<span className="more-info orange-text text-lighten-1" onClick={()=>{goToDetails(id)}}>MORE INFO</span>}</div>
                     </div>
                 </div>
             </div>

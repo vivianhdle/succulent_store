@@ -1,7 +1,9 @@
 .products{
     width:100%;
     height:calc(100% - 64px);
-
+    #plants,#terrariums{
+        margin-top:48px;
+    }
     .product-item{
         >.col{
             padding:0;

@@ -52,7 +52,6 @@ class Cart extends Component{
                     {cartItems}
                 </div>
             </div>
-            
         )
     }
 }

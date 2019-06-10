@@ -59,5 +59,3 @@ class Cart extends Component{
 
 export default Cart;
 
-{/* <div className="right-align total-items">Total Items In Cart: {totalItems}</div>
-<div className="col s12 m10 offset-m1 price-total right-align">Total: {formatMoney(meta.total)}</div> */}

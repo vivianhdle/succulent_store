@@ -2,4 +2,13 @@
     display:flex;
     align-content: center;
     align-items: center;
+    .action-container{
+        margin-top:1rem;
+        .action{
+            margin-top:1rem;
+            margin-right:2rem;
+            color:blue;
+            cursor:pointer;
+        }
+    }
 }

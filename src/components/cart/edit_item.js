@@ -4,7 +4,6 @@ import {formatMoney} from '../../helpers';
 
 class EditItem extends Component{
     render(){
-        console.log(this.props);
         const {isOpen,name,quantity,price,image}=this.props;
         const itemTotalPrice= formatMoney(quantity*price);
         if (isOpen){

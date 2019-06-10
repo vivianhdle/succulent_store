@@ -87,7 +87,7 @@ class CartItem extends Component{
         return(
             <div className="cart-item">
                 <div className="row">
-                    <div className="col s12 m6 l6 item-details">
+                    <div className="col s12 item-details">
                         <img className="col m6 s6" src={`/dist/${image}`} alt={`${name} product image`}/>
                         <div className="order-description col m6 s6">
                             <div>Name: {name}</div>
@@ -99,8 +99,8 @@ class CartItem extends Component{
                             <div>Price: {formatMoney(price)}</div>
                             <div>Total: {itemTotalPrice}</div>
                             <div className="action-container">
-                                <span className="action" onClick={this.goToDetails}>Full Details</span>
-                                <span className="action" onClick={this.toggleDeleteConfirm}>Remove</span>
+                                <span className="action orange-text text-lighten-1" onClick={this.goToDetails}>Full Details</span>
+                                <span className="action orange-text text-lighten-1" onClick={this.toggleDeleteConfirm}>Remove</span>
                             </div>
                         </div>
                     </div>

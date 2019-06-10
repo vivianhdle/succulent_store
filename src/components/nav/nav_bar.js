@@ -42,7 +42,6 @@ class Nav extends Component{
         )
     }
     render(){
-        console.log(this.props)
         const {navColor = ''}=this.props
         const links = this.renderLinks();
         const sideLinks = this.renderSideLinks();

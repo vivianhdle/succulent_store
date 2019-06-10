@@ -6,6 +6,7 @@ import './view_cart.scss';
 import CartItem from './cart_item';
 import Loader from '../general/loader';
 import EmptyCart from './empty_cart';
+import Checkout from './checkout_btn';
 
 class Cart extends Component{
     state = {
@@ -31,6 +32,7 @@ class Cart extends Component{
     }
     render(){
         const {meta,items,isLoaded} = this.state;
+        console.log(meta);
         let totalItems=0;
         const cartItems=items.map((item)=>{
             const {quantity,id} = item;
@@ -46,9 +48,19 @@ class Cart extends Component{
             return <EmptyCart/>
         }
         return (
-            <div className="row">
-                <div className="cart col s12 m10 offset-m1 l8 offset-l2">
-                    <Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link>
+            <div className="row view-cart">
+                <div className="col s12 offset-m1 offset-l2">
+                <div><Link to="/products"><i className="material-icons back-arrow green-text text-lighten-1">arrow_back</i></Link></div>
+                </div>
+                <div className="order-summary col s12 m3 offset-m7 offset-l7 l3">
+                    <h5>Order Summary</h5>
+                    <div>Subtotal Price: <span className="right">{formatMoney(meta.total)}</span></div>
+                    <div>Sales Tax: <span className="right">{formatMoney(meta.total*.0725)}</span></div>
+                    <div>Shipping:<span className="right">--</span></div>
+                    <div>Total:<span className="right">{formatMoney(meta.total + meta.total*.0725)}</span></div>
+                    <Checkout/>
+                </div>
+                <div className="cart col s12 m6 offset-m1 l5 offset-l2">
                     {cartItems}
                 </div>
             </div>

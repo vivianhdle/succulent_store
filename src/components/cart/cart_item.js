@@ -57,11 +57,11 @@ class CartItem extends Component{
         }
     }
     decrementQty=async()=>{
-        this.setState({
-            updating:true
-        })
         const {products_id,quantity,price,updateItem,updateCart} = this.props
         if (this.state.quantity>1){
+            this.setState({
+                updating:true
+            })
             const resp = await axios.put('/api/decrementquantity.php',{
                 products_id: products_id,
                 quantity:quantity,
@@ -81,6 +81,9 @@ class CartItem extends Component{
         const {image,name,price} = this.props;
         const {quantity,isOpen,deleting,updating}=this.state
         const itemTotalPrice= formatMoney(quantity*price);
+        if (deleting||updating){
+            return <Loader/>
+        }
         return(
             <div className="cart-item">
                 <div className="row">
@@ -96,8 +99,8 @@ class CartItem extends Component{
                             <div>Price: {formatMoney(price)}</div>
                             <div>Total: {itemTotalPrice}</div>
                             <div className="action-container">
-                                <span className="action" onClick={this.toggleDeleteConfirm}>Remove</span>
                                 <span className="action" onClick={this.goToDetails}>Full Details</span>
+                                <span className="action" onClick={this.toggleDeleteConfirm}>Remove</span>
                             </div>
                         </div>
                     </div>

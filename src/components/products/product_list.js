@@ -30,7 +30,6 @@ class ProductList extends Component {
             const terrariums = products.filter((product)=>{
                 return product.type === 'terrarium'
             })
-            console.log(products);
             this.setState({
                 plants:plants,
                 terrariums:terrariums,

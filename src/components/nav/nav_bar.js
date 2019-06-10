@@ -42,21 +42,24 @@ class Nav extends Component{
         )
     }
     render(){
+        const {navColor = ''}=this.props
         const links = this.renderLinks();
         const sideLinks = this.renderSideLinks();
         return (
             <Fragment>
-                <nav className="row">
-                    <div className="nav-wrapper col s12 offset-l2 l8">
-                        <Link to="/" className="brand-logo"><i className="fas fa-seedling"></i></Link>
-                        <a href="#" data-target="sidenav" className="sidenav-trigger">
-                            <i className="material-icons">menu</i>
-                        </a>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            {links}
-                        </ul>
-                    </div>
-                </nav>
+                <div className="navbar-fixed">
+                    <nav className={`row ${navColor} `}>
+                        <div className="nav-wrapper col s12 offset-l2 l8">
+                            <Link to="/" className="brand-logo"><i className="fas fa-seedling"></i></Link>
+                            <a href="#" data-target="sidenav" className="sidenav-trigger">
+                                <i className="material-icons">menu</i>
+                            </a>
+                            <ul id="nav-mobile" className="right hide-on-med-and-down">
+                                {links}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
                 <SideNav links={sideLinks}/>
             </Fragment>
         )

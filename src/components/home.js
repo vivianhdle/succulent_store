@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom';
 
 class Home extends Component{
+    componentDidMount(){
+        this.props.isHomePage();
+    }
+    componentWillUnmount(){
+        this.props.isHomePage();
+    }
     goToProducts=()=>{
         this.props.history.push('/products');
     }

@@ -1,0 +1,21 @@
+.item-details{
+    display:flex;
+    align-content: center;
+    align-items: center;
+    
+    .order-description>*{
+        margin:.5rem 0;
+    }
+    .quantity-dec,.quantity-inc{
+        padding:0 1rem;
+        cursor:pointer;
+    }
+    .action-container{
+        margin-top:1rem;
+        .action{
+            margin-top:1rem;
+            margin-right:2rem;
+            cursor:pointer;
+        }
+    }
+}

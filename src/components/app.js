@@ -13,7 +13,8 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state={
-            cartItems:0
+            cartItems:0,
+            homepage:false
         }
     }
     updateCartItems=(count,direction)=>{
@@ -31,6 +32,11 @@ class App extends Component{
             })
         }
     }
+    isHomePage=()=>{
+        this.setState({
+            homepage:!this.state.homepage
+        })
+    }
     componentDidMount(){
         this.getCartItemCount();
     }
@@ -41,8 +47,10 @@ class App extends Component{
     render(){
         return (
             <div className="app-container">
-                <Nav cartItems={this.state.cartItems}/>
-                <Route exact path="/" component={Home}/>
+                {this.state.homepage ? <Nav cartItems={this.state.cartItems} navColor="transparent"/>:<Nav cartItems={this.state.cartItems}/>}
+                <Route exact path="/" render={(routingProps)=>{
+                    return <Home {...routingProps} isHomePage={this.isHomePage}/>
+                }}/>
                 <Route path="/products" render={(routingProps)=>{
                     return <Products {...routingProps} updateCart={this.updateCartItems}/>
                 }}/>

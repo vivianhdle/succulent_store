@@ -1,0 +1,27 @@
+.succ-modal{
+    height:100vh;
+    background-color:rgba(0,0,0,.75);
+    width:100vw;
+    position:fixed;
+    left:0;
+    top:0;
+    display:flex;
+    z-index: 998;
+
+    .modal-content{
+        background-color:white;
+        margin:auto;
+        border-radius:10px;
+        padding:20px;
+        top:10%;
+        .items-added{
+            font-size:2rem;
+        }
+        
+        .modal-actions{
+            button{
+                margin:8px 14px;
+            }
+        }
+    }
+}

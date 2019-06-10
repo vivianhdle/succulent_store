@@ -1,42 +1,74 @@
+@import './variables.scss';
 @font-face {
     font-family: rustic;
     src: url(../fonts/rustic.ttf);
 }
 
-body {
-    margin: 0;
-
-    .app {
-        background-color: #000;
-        color: #FFF;
-        font-family: rustic;
-        font-size: 30px;
-        padding: 50px;
-        text-align: center;
-
-        .logo {
-            height: 175px;
-        }
-
-        .rotate {
-            animation: spin 10s linear infinite;
-        }
-
-        h1 {
-            color: #61DAFB;
-            font-size: 4em;
-            font-weight: normal;
-            letter-spacing: 2px;
-            margin: 0.16em;
-        }
+html {
+    overflow-y: scroll;
+    ::-webkit-scrollbar { 
+        display: none; 
     }
 }
+body {
+    margin: 0;
+    color:$main-text;
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
+    #root{
+        height:100vh;
+        width:100vw;
+        .app-container{
+            height:100%;
+            width:100%;
+        }
     }
-    to {
-        transform: rotate(360deg);
+
+    .landing-page{
+        min-height:100%;
+        width:100%;
+        background-image:url("../images/landing-page.jpg");
+        background-size:cover;
+        left:0;
+        top:0;
+        position: absolute;
+        background-repeat:no-repeat;
+
+        @media only screen 
+            and (min-device-width: 1024px) 
+            and (max-device-width: 1366px) 
+            and (-webkit-min-device-pixel-ratio: 2) 
+            and (orientation: portrait){
+                background-position:right;
+            }
+        @media only screen 
+            and (min-device-width: 768px) 
+            and (max-device-width: 1024px) 
+            and (-webkit-min-device-pixel-ratio: 2) 
+            and (orientation: portrait){
+                background-position:right;
+            }
+        .landing-container{
+            margin-top:56px;
+            @media only screen and (min-width: 601px){
+                margin-top:64px
+            }
+            .landing-title{
+                font-weight:300;
+            }
+            .landing-text{
+                font-size:1.2rem;
+                font-weight:300;
+            }
+            .button-container{
+                margin-top:1rem;
+                button {
+                    margin-right:1rem;
+                }
+                .guide-button{
+                    background-color:#f5b47a;
+                }
+            }
+        }
     }
+    
 }

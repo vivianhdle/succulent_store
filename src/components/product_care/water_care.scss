@@ -1,0 +1,15 @@
+.water-care{
+    min-height:100vh;
+    margin-top: 2rem;
+    .water-container{
+        display:flex;
+        -webkit-box-align: center;
+        align-items: center;
+        @media only screen and (max-width: 601px){
+            display:block;
+        }
+        .water-title{
+            font-weight:300;
+        }
+    }
+}

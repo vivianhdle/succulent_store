@@ -1,0 +1,15 @@
+.soil-care{
+    min-height:100vh;
+    margin-top: 2rem;
+    .soil-container{
+        display:flex;
+        -webkit-box-align: center;
+        align-items: center;
+        @media only screen and (max-width: 601px){
+            display:block;
+        }
+        .soil-title{
+            font-weight:300;
+        }
+    }
+}

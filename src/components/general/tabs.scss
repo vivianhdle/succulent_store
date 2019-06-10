@@ -1,0 +1,12 @@
+.tabs.col.s12.m10{
+    position: fixed;
+    z-index: 1;
+    left:0;
+    .tab a:focus, .tab a:focus.active {
+        background-color: transparent;
+        outline: none;
+    }
+    .indicator{
+        background-color: peachpuff;
+    }
+}

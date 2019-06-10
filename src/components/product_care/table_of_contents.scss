@@ -1,0 +1,23 @@
+.table-of-contents{
+    min-height:100%;
+    width:100%;
+    display: flex;
+    .contents-container{
+        display:flex;
+        -webkit-box-align: center;
+        align-items: center;
+        @media only screen and (max-width: 601px){
+            display:block;
+        }
+        ol{
+            list-style-type:none; 
+            padding:0;
+        }
+
+    }
+    .guide-text{
+        .guide-title{
+            font-weight:300;
+        }
+    }
+}

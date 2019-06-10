@@ -1,0 +1,25 @@
+.products{
+    width:100%;
+    height:calc(100% - 64px);
+    #plants,#terrariums{
+        margin-top:48px;
+    }
+    .product-item{
+        >.col{
+            padding:0;
+            transition: 1s ease-in all;
+        }
+        .card{
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+    .card-item{
+        .card-image .card-title{
+            color:green;
+        }
+    }
+    .more-info{
+        cursor:pointer;
+    }
+}

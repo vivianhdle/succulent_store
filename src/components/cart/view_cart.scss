@@ -1,0 +1,21 @@
+@import '../../assets/css/variables.scss';
+.cart{
+    .back-arrow{
+        padding:.5rem;
+    }
+}
+.view-cart{
+    overflow-x:hidden;
+}
+.order-summary{
+    position:fixed;
+    @media only screen and (max-width: 601px){
+        position: static;
+    }
+    >div{
+        margin:1rem 0;
+    }
+}
+.price-total{
+    font-size:2rem;
+}

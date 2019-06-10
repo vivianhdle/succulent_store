@@ -53,6 +53,7 @@ class Cart extends Component{
                 </div>
                 <div className="order-summary col s12 m3 offset-m7 offset-l7 l3">
                     <h5>Order Summary</h5>
+                    <div>Total Items: <span className="right">x {totalItems}</span></div>
                     <div>Subtotal Price: <span className="right">{formatMoney(meta.total)}</span></div>
                     <div>Sales Tax: <span className="right">{formatMoney(meta.total*.0725)}</span></div>
                     <div>Shipping:<span className="right">--</span></div>

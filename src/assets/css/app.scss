@@ -24,17 +24,14 @@ body {
     }
 
     .landing-page{
-        height:100%;
+        min-height:100%;
         width:100%;
         background-image:url("../images/landing-page.jpg");
         background-size:cover;
         left:0;
         top:0;
-        position:fixed;
+        position: absolute;
         background-repeat:no-repeat;
-        @media only screen and (max-width: 601px){
-            background-position: center;
-        }
 
         @media only screen 
             and (min-device-width: 1024px) 
@@ -51,10 +48,9 @@ body {
                 background-position:right;
             }
         .landing-container{
-            top:56px;
-            position:relative;
+            margin-top:56px;
             @media only screen and (min-width: 601px){
-                top:64px
+                margin-top:64px
             }
             .landing-title{
                 font-weight:300;

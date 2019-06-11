@@ -51,7 +51,7 @@ class ProductDetails extends Component{
                     <div className="photo-container col s10 offset-s1 m5 offset-m1 l4 offset-l2">
                         <img src={`/dist/${image}`}/>
                     </div>
-                    <div className="info col s10 offset-s1 m4 l4">
+                    <div className="info col s10 offset-s1 m5 l4">
                         <div className="name green-text text-darken-1">{name}</div>
                         <AddToCart price={price} id={id} updateCart={this.props.updateCart}/>
                         <ul>

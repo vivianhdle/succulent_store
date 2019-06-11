@@ -20,20 +20,20 @@
                 font-size:1.5rem;
                 padding:0 1rem;
                 color:$main-text;
-                border-top:1px solid black;
-                border-bottom:1px solid black;
+                // border-top:1px solid $main-text;
+                // border-bottom:1px solid $main-text;
                 box-sizing: border-box;
                 display:inline-block;
                 height:100%;
                 vertical-align:top;
-                color:white;
+                // color:white;
             }
             .quantity-inc,.quantity-dec{
                 font-size:1.5rem;
                 vertical-align:top;
                 height:100%;
                 display:inline-block;
-                border:1px solid black;
+                // border:1px solid $main-text;
                 cursor:pointer;
                 user-select: none;
             }

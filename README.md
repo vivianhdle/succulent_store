@@ -1,4 +1,3 @@
-# Cactus Store
 <img align="right" width="150" src="/public/dist/cactus-icon.png">
 
 # Succulents and Cactus E-Commerce Store

@@ -12,7 +12,7 @@ function DIYTerrarium(){
                 <img className="col l8 s12 offset-l2 m10 offset-m1" src="/dist/images/diy/terrarium.jpg" alt=""/>
             </div>
             <div className="row">
-                <h4 className="col s12offset-l2 l8  m10 offset-m1">Supplies Needed</h4>
+                <h4 className="col s12 offset-l2 l8 m10 offset-m1">Supplies Needed</h4>
             </div>
             <div className="row supplies-container">
                 <img className="col s12 l4 offset-l2  m5 offset-m1" src="/dist/images/diy/diy.jpg" alt=""/>
@@ -27,9 +27,8 @@ function DIYTerrarium(){
                         <li>Garden ornaments  or rocks (optional accents) Use birds, snails, mushrooms; large river rocks; glass spiders and bugs</li>
                         <li>Sand</li>
                     </ul>
-                    <Link className="col btn green lighten-1 l5 s5">Succulents</Link>
-                    {/* <button className="col btn green lighten-1 l5 s5">Succulents</button> */}
-                    <button className="col btn orange lighten-1 offset-l1 l4 s5 offset-s1">Terrariums</button>
+                    <Link to={{pathname:"/products",search:"?tab=succulents"}}className="col btn green lighten-1 l5 s5">Succulents</Link>
+                    <Link to={{pathname:"/products",search:"?tab=terrariums"}}className="col btn orange lighten-1 offset-l1 l5 s5 offset-s1">Terrariums</Link>
                 </div>
             </div>
             <div className="row">

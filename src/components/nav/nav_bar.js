@@ -15,6 +15,9 @@ class Nav extends Component{
                     <Link to="/products"><i className="fas fa-leaf"></i></Link>
                 </li>
                 <li className="sidenav-close">
+                    <Link to="/diy-terrarium"><i class="fas fa-tools"></i></Link>
+                </li>
+                <li className="sidenav-close">
                     <Link to="/product-care"><i className="fas fa-book-open"></i></Link>
                 </li>
                 <li className="sidenav-close">
@@ -31,6 +34,9 @@ class Nav extends Component{
                 </li>
                 <li className="sidenav-close">
                     <Link to="/products"><i className="fas fa-leaf"></i>Products</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/diy-terrarium"><i class="fas fa-tools"></i>DIY Terrarium Guide</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/product-care"><i className="fas fa-book-open"></i>Care Guide</Link>

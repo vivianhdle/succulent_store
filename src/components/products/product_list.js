@@ -38,6 +38,7 @@ class ProductList extends Component {
         }
     }
     render(){
+        const active = this.props.location.search.replace("?tab=","");
         const {plants,loading,terrariums} = this.state;
         if (loading){
             return <Loader/>
@@ -52,9 +53,9 @@ class ProductList extends Component {
         return(
             <div className="product-container row">
                 <div className="tab-container col s12 m10 offset-m1 l8 offset-l2">
-                    <Tabs/>
+                    <Tabs active = {active}/>
                 </div>
-                <div className="row col s12 m10 offset-m1 l8 offset-l2" id="plants">
+                <div className="row col s12 m10 offset-m1 l8 offset-l2 " id="plants">
                     {plantItems}
                 </div>
                 <div className="row col s12 m10 offset-m1 l8 offset-l2" id="terrariums">

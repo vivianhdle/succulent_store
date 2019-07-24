@@ -59,7 +59,9 @@ class App extends Component{
                 <Route path="/cart" render={(routingProps)=>{
                     return <Cart {...routingProps} updateCart={this.updateCartItems}/>
                 }}/>
-                <Route path="/search" component={Search}/>
+                <Route path="/search" render={(routingProps)=>{
+                    return <Search {...routingProps}/>
+                }}/>
                 <Route path="/product-care" component={ProductCare}/>
                 <Route path="/diy-terrarium" component={DIYTerrarium}/>
             </div>

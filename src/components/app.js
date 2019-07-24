@@ -8,6 +8,7 @@ import Cart from './cart/view_cart';
 import axios from 'axios';
 import ProductCare from './product_care';
 import DIYTerrarium from './diy_terrarium';
+import Search from './search';
 
 
 class App extends Component{
@@ -58,6 +59,7 @@ class App extends Component{
                 <Route path="/cart" render={(routingProps)=>{
                     return <Cart {...routingProps} updateCart={this.updateCartItems}/>
                 }}/>
+                <Route path="/search" component={Search}/>
                 <Route path="/product-care" component={ProductCare}/>
                 <Route path="/diy-terrarium" component={DIYTerrarium}/>
             </div>

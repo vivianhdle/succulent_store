@@ -1,8 +1,15 @@
-.products{
-    width:100%;
+.search-products{
+    width:100%; 
     height:calc(100% - 64px);
     @media only screen and (max-width: 601px){
         height:calc(100% - 56px);
+    }
+    form input#search {
+        width: calc(100% - 36px);
+    }
+    button{
+        border:none;
+        background-color:transparent;
     }
     #plants,#terrariums{
         margin-top:48px;

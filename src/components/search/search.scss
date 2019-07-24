@@ -7,9 +7,18 @@
     form input#search {
         width: calc(100% - 36px);
     }
+    input[type=text]:not(.browser-default):focus:not([readonly]){
+        border-bottom:#f5b47a;
+        box-shadow: 0 1px 0 0 #f5b47a;
+    }
+    input[type=text]:not(.browser-default):focus:not([readonly]) + label{
+        color:grey;
+    }
     button{
         border:none;
         background-color:transparent;
+        color:grey;
+        cursor:pointer;
     }
     #plants,#terrariums{
         margin-top:48px;
@@ -30,5 +39,9 @@
     }
     .more-info{
         cursor:pointer;
+    }
+    .item-count{
+        padding-top: 1rem;
+        color:grey;
     }
 }

@@ -9,7 +9,8 @@ class SearchBar extends Component{
         this.state = {
             loading:false,
             allProducts:null,
-            filtered:[]
+            searched:false,
+            filtered:[],
         }
     }
     componentDidMount(){
@@ -36,6 +37,7 @@ class SearchBar extends Component{
             })
         }
         this.setState({
+            searched:true,
             filtered:filteredList
         })
     }
@@ -55,6 +57,10 @@ class SearchBar extends Component{
                         <button type="submit"><i className="fas fa-search"></i></button>
                     </div>
                 </form>
+                {this.state.searched && 
+                <div className="col s12">
+                    <div className="item-count col s10 offset-s1 l8 offset-l2">{this.state.filtered.length} item{this.state.filtered.length>1? 's':''} found</div>
+                </div>}
                 <div className="row col s12 m10 offset-m1 l8 offset-l2 " id="plants">
                     {searchedResults}
                 </div>

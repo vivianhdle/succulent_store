@@ -1,6 +1,9 @@
 .products{
     width:100%;
     height:calc(100% - 64px);
+    @media only screen and (max-width: 601px){
+        height:calc(100% - 56px);
+    }
     #plants,#terrariums{
         margin-top:48px;
     }

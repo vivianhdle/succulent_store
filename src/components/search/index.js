@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import SearchBar from './search_bar';
 import './search.scss';
 
-function Search(){
-    return (
-        <div className="search-products">
-            <SearchBar/>
-        </div>
-    )
+class Search extends Component{
+    render(){
+        return (
+            <div className="search-products">
+                <SearchBar/>
+            </div>
+        )
+    }
 }
 
 

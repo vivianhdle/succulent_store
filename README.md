@@ -2,8 +2,6 @@
 
 # Succulents and Cactus E-Commerce Store
 
-##### http://succulents.vivianhdle.com/
-
 This repo contains an E-Commerce store. Designed for desktop and mobile, the app serves as place for customers to come and buy succulents/cactus. Users can add to their cart as well as update their cart quantities or delete certain cart items.
 
 ### Setup Instructions
